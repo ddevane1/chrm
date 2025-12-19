@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications | Centre for Health Research Methodology</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-deep: #0a2540;
+            --primary-blue: #1a5f7a;
+            --accent-teal: #57c4c4;
+            --accent-gold: #d4a84b;
+            --accent-purple: #8b5cf6;
+            --text-dark: #1a1a2e;
+            --text-light: #6b7280;
+            --bg-cream: #faf9f7;
+            --bg-white: #ffffff;
+            --bg-light: #f3f4f6;
+            --gradient-hero: linear-gradient(135deg, #0a2540 0%, #1a5f7a 50%, #2d8a8a 100%);
+            --shadow-soft: 0 4px 20px rgba(10, 37, 64, 0.08);
+            --shadow-medium: 0 8px 40px rgba(10, 37, 64, 0.12);
+            --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            color: var(--text-dark);
+            background: var(--bg-cream);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(10, 37, 64, 0.05);
+            transition: var(--transition-smooth);
+        }
+
+        nav.scrolled {
+            box-shadow: var(--shadow-soft);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0.8rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .uni-logo {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text span:first-child {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--primary-deep);
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary-blue);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient-hero);
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Filter Bar */
+        .filter-bar {
+            background: white;
+            padding: 2rem;
+            margin: -2rem auto 3rem;
+            max-width: 1200px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-medium);
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .filter-group {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .filter-group label {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .filter-group select,
+        .filter-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .filter-group select:focus,
+        .filter-group input:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+        }
+
+        /* Publications Section */
+        .publications-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+        }
+
+        .section-header {
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary-deep);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        /* Publication Cards */
+        .publication-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .publication-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition-smooth);
+        }
+
+        .publication-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .publication-year {
+            display: inline-block;
+            background: var(--accent-gold);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .publication-title {
+            font-size: 1.4rem;
+            color: var(--primary-deep);
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .publication-authors {
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .publication-journal {
+            color: var(--primary-blue);
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .publication-abstract {
+            color: var(--text-dark);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .publication-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .publication-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--bg-light);
+            color: var(--primary-blue);
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition-smooth);
+        }
+
+        .publication-link:hover {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        /* Category Tabs */
+        .category-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            border-bottom: 2px solid var(--bg-light);
+            overflow-x: auto;
+        }
+
+        .category-tab {
+            padding: 1rem 1.5rem;
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 3px solid transparent;
+            transition: var(--transition-smooth);
+            white-space: nowrap;
+        }
+
+        .category-tab:hover {
+            color: var(--primary-blue);
+        }
+
+        .category-tab.active {
+            color: var(--primary-blue);
+            border-bottom-color: var(--primary-blue);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: white;
+            padding: 3rem 2rem;
+            margin: 4rem 0;
+        }
+
+        .stats-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 1.5rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            color: var(--primary-blue);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-deep);
+            color: white;
+            padding: 3rem 2rem 1.5rem;
+        }
+
+        .footer-logo {
+            height: 60px;
+            width: auto;
+            margin-bottom: 1rem;
+            object-fit: contain;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-content p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: var(--shadow-medium);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .filter-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .category-tabs {
+                flex-wrap: nowrap;
+                overflow-x: scroll;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="images/university-galway-logo.png" alt="University of Galway Logo" class="uni-logo">
+                <div class="logo-text">
+                    <span>Centre for Health Research Methodology</span>
+                </div>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="publications.html" class="active">Publications</a></li>
+                <li><a href="grade-ireland.html">GRADE Ireland</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Publications</h1>
+        <p>Research outputs from the Centre for Health Research Methodology</p>
+    </section>
+
+    <!-- Filter Bar -->
+    <div class="filter-bar">
+        <div class="filter-group">
+            <label for="yearFilter">Year</label>
+            <select id="yearFilter">
+                <option value="">All Years</option>
+                <option value="2024">2024</option>
+                <option value="2023">2023</option>
+                <option value="2022">2022</option>
+                <option value="2021">2021</option>
+                <option value="2020">2020</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label for="categoryFilter">Category</label>
+            <select id="categoryFilter">
+                <option value="">All Categories</option>
+                <option value="trials">Clinical Trials</option>
+                <option value="synthesis">Evidence Synthesis</option>
+                <option value="methodology">Methodology</option>
+                <option value="engagement">Public Engagement</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label for="searchFilter">Search</label>
+            <input type="text" id="searchFilter" placeholder="Search publications...">
+        </div>
+    </div>
+
+    <!-- Publications Section -->
+    <section class="publications-section">
+        <!-- Category Tabs -->
+        <div class="category-tabs">
+            <a href="#all" class="category-tab active">All Publications</a>
+            <a href="#featured" class="category-tab">Featured</a>
+            <a href="#recent" class="category-tab">Recent</a>
+            <a href="#trials" class="category-tab">Clinical Trials</a>
+            <a href="#synthesis" class="category-tab">Evidence Synthesis</a>
+            <a href="#methodology" class="category-tab">Methodology</a>
+        </div>
+
+        <!-- Publications List -->
+        <div class="publication-list">
+            <!-- Featured Publication -->
+            <div class="publication-card">
+                <span class="publication-year">2024</span>
+                <h3 class="publication-title">Core outcome sets for prevention and treatment of postpartum haemorrhage: an international Delphi consensus study</h3>
+                <p class="publication-authors">Devane D, Egan AM, Horey D, et al.</p>
+                <p class="publication-journal">BJOG: An International Journal of Obstetrics & Gynaecology</p>
+                <p class="publication-abstract">This international consensus study developed core outcome sets for clinical trials evaluating interventions for the prevention and treatment of postpartum haemorrhage, ensuring that future trials measure outcomes that matter most to women, clinicians, and researchers.</p>
+                <div class="publication-links">
+                    <a href="#" class="publication-link">📄 Full Text</a>
+                    <a href="#" class="publication-link">🔗 DOI</a>
+                    <a href="#" class="publication-link">📊 PubMed</a>
+                </div>
+            </div>
+
+            <!-- Recent Publication -->
+            <div class="publication-card">
+                <span class="publication-year">2024</span>
+                <h3 class="publication-title">Rapid evidence synthesis to support health system decision-making during COVID-19</h3>
+                <p class="publication-authors">Biesty L, Burke N, Devane D, et al.</p>
+                <p class="publication-journal">Systematic Reviews</p>
+                <p class="publication-abstract">This paper describes the development and implementation of a rapid evidence synthesis service to support healthcare decision-making during the COVID-19 pandemic, demonstrating how methodological rigor can be maintained while meeting urgent policy needs.</p>
+                <div class="publication-links">
+                    <a href="#" class="publication-link">📄 Full Text</a>
+                    <a href="#" class="publication-link">🔗 DOI</a>
+                    <a href="#" class="publication-link">📊 PubMed</a>
+                </div>
+            </div>
+
+            <!-- Methodology Publication -->
+            <div class="publication-card">
+                <span class="publication-year">2023</span>
+                <h3 class="publication-title">Studies Within A Trial (SWAT): protocol for a systematic review</h3>
+                <p class="publication-authors">Toomey E, Devane D, et al.</p>
+                <p class="publication-journal">Trials</p>
+                <p class="publication-abstract">This systematic review protocol outlines methods for evaluating the effectiveness of Studies Within A Trial (SWATs) in improving trial recruitment and retention, contributing to the evidence base for trial methodology research.</p>
+                <div class="publication-links">
+                    <a href="#" class="publication-link">📄 Full Text</a>
+                    <a href="#" class="publication-link">🔗 DOI</a>
+                    <a href="#" class="publication-link">📊 PubMed</a>
+                </div>
+            </div>
+
+            <!-- Public Engagement Publication -->
+            <div class="publication-card">
+                <span class="publication-year">2023</span>
+                <h3 class="publication-title">The People's Trial: citizen-led priority setting for health research</h3>
+                <p class="publication-authors">Stewart D, Daly A, Devane D, et al.</p>
+                <p class="publication-journal">Research Involvement and Engagement</p>
+                <p class="publication-abstract">This paper describes an innovative approach to involving citizens in health research priority setting through The People's Trial, demonstrating how public engagement can shape research agendas to address questions that matter most to communities.</p>
+                <div class="publication-links">
+                    <a href="#" class="publication-link">📄 Full Text</a>
+                    <a href="#" class="publication-link">🔗 DOI</a>
+                    <a href="#" class="publication-link">📊 PubMed</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">250+</div>
+                <div class="stat-label">Publications</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">45</div>
+                <div class="stat-label">Systematic Reviews</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">30+</div>
+                <div class="stat-label">Clinical Trials</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">5000+</div>
+                <div class="stat-label">Citations</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <img src="images/university-galway-logo.png" alt="University of Galway Logo" class="footer-logo">
+            <h3>Centre for Health Research Methodology</h3>
+            <p>Advancing health research from trial design to evidence synthesis to informed decision-making.</p>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="publications.html">Publications</a>
+                <a href="#contact">Contact</a>
+                <a href="https://www.universityofgalway.ie/" target="_blank">University of Galway</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Category tabs functionality
+        const categoryTabs = document.querySelectorAll('.category-tab');
+        categoryTabs.forEach(tab => {
+            tab.addEventListener('click', (e) => {
+                e.preventDefault();
+                categoryTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+            });
+        });
+
+        // Filter functionality (placeholder)
+        const yearFilter = document.getElementById('yearFilter');
+        const categoryFilter = document.getElementById('categoryFilter');
+        const searchFilter = document.getElementById('searchFilter');
+
+        function filterPublications() {
+            // This is where you would implement actual filtering logic
+            console.log('Filtering publications...');
+        }
+
+        yearFilter.addEventListener('change', filterPublications);
+        categoryFilter.addEventListener('change', filterPublications);
+        searchFilter.addEventListener('input', filterPublications);
+    </script>
+</body>
+</html>
