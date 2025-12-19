@@ -199,79 +199,81 @@
             font-size: 1.1rem;
         }
 
-        /* Publication Cards */
+        /* Publication List - Compact Citation Style */
         .publication-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .publication-card {
             background: white;
             border-radius: 12px;
             padding: 2rem;
             box-shadow: var(--shadow-soft);
+        }
+
+        .year-section {
+            margin-bottom: 2rem;
+        }
+
+        .year-header {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--bg-light);
+        }
+
+        .publication-item {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--bg-light);
             transition: var(--transition-smooth);
         }
 
-        .publication-card:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-medium);
+        .publication-item:last-child {
+            border-bottom: none;
         }
 
-        .publication-year {
-            display: inline-block;
-            background: var(--accent-gold);
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
+        .publication-item:hover {
+            background: var(--bg-cream);
+            margin: 0 -1rem;
+            padding: 1rem;
         }
 
-        .publication-title {
-            font-size: 1.4rem;
-            color: var(--primary-deep);
-            margin-bottom: 0.5rem;
-            line-height: 1.4;
-        }
-
-        .publication-authors {
-            color: var(--text-light);
-            margin-bottom: 0.5rem;
+        .publication-citation {
             font-size: 1rem;
-        }
-
-        .publication-journal {
-            color: var(--primary-blue);
-            font-style: italic;
-            margin-bottom: 1rem;
-        }
-
-        .publication-abstract {
+            line-height: 1.6;
             color: var(--text-dark);
-            line-height: 1.7;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-citation .authors {
+            color: var(--text-dark);
+        }
+
+        .publication-citation .title {
+            font-weight: 600;
+            color: var(--primary-deep);
+        }
+
+        .publication-citation .journal {
+            font-style: italic;
+            color: var(--primary-blue);
+        }
+
+        .publication-citation .year {
+            color: var(--text-light);
         }
 
         .publication-links {
             display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 0.5rem;
         }
 
         .publication-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            background: var(--bg-light);
+            font-size: 0.85rem;
             color: var(--primary-blue);
             text-decoration: none;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            font-weight: 500;
+            padding: 0.25rem 0.5rem;
+            border: 1px solid var(--primary-blue);
+            border-radius: 4px;
             transition: var(--transition-smooth);
         }
 
@@ -352,6 +354,8 @@
             width: auto;
             margin-bottom: 1rem;
             object-fit: contain;
+            filter: brightness(0) invert(1);
+            opacity: 0.9;
         }
 
         .footer-content {
@@ -509,59 +513,111 @@
 
         <!-- Publications List -->
         <div class="publication-list">
-            <!-- Featured Publication -->
-            <div class="publication-card">
-                <span class="publication-year">2024</span>
-                <h3 class="publication-title">Core outcome sets for prevention and treatment of postpartum haemorrhage: an international Delphi consensus study</h3>
-                <p class="publication-authors">Devane D, Egan AM, Horey D, et al.</p>
-                <p class="publication-journal">BJOG: An International Journal of Obstetrics & Gynaecology</p>
-                <p class="publication-abstract">This international consensus study developed core outcome sets for clinical trials evaluating interventions for the prevention and treatment of postpartum haemorrhage, ensuring that future trials measure outcomes that matter most to women, clinicians, and researchers.</p>
-                <div class="publication-links">
-                    <a href="#" class="publication-link">📄 Full Text</a>
-                    <a href="#" class="publication-link">🔗 DOI</a>
-                    <a href="#" class="publication-link">📊 PubMed</a>
+            <!-- 2024 Publications -->
+            <div class="year-section">
+                <h3 class="year-header">2024</h3>
+
+                <div class="publication-item">
+                    <div class="publication-citation">
+                        <span class="authors">Devane D, Egan AM, Horey D, et al.</span>
+                        <span class="title">Core outcome sets for prevention and treatment of postpartum haemorrhage: an international Delphi consensus study.</span>
+                        <span class="journal">BJOG: An International Journal of Obstetrics & Gynaecology.</span>
+                        <span class="year">2024.</span>
+                    </div>
+                    <div class="publication-links">
+                        <a href="#" class="publication-link">Full Text</a>
+                        <a href="#" class="publication-link">DOI</a>
+                        <a href="#" class="publication-link">PubMed</a>
+                    </div>
+                </div>
+
+                <div class="publication-item">
+                    <div class="publication-citation">
+                        <span class="authors">Biesty L, Burke N, Devane D, et al.</span>
+                        <span class="title">Rapid evidence synthesis to support health system decision-making during COVID-19.</span>
+                        <span class="journal">Systematic Reviews.</span>
+                        <span class="year">2024;13:45.</span>
+                    </div>
+                    <div class="publication-links">
+                        <a href="#" class="publication-link">Full Text</a>
+                        <a href="#" class="publication-link">DOI</a>
+                        <a href="#" class="publication-link">PubMed</a>
+                    </div>
+                </div>
+
+                <div class="publication-item">
+                    <div class="publication-citation">
+                        <span class="authors">Kerins C, Devane D, et al.</span>
+                        <span class="title">Implementation strategies for evidence-based practice in maternity care: a systematic review.</span>
+                        <span class="journal">Implementation Science.</span>
+                        <span class="year">2024;19:12.</span>
+                    </div>
+                    <div class="publication-links">
+                        <a href="#" class="publication-link">Full Text</a>
+                        <a href="#" class="publication-link">DOI</a>
+                        <a href="#" class="publication-link">PubMed</a>
+                    </div>
                 </div>
             </div>
 
-            <!-- Recent Publication -->
-            <div class="publication-card">
-                <span class="publication-year">2024</span>
-                <h3 class="publication-title">Rapid evidence synthesis to support health system decision-making during COVID-19</h3>
-                <p class="publication-authors">Biesty L, Burke N, Devane D, et al.</p>
-                <p class="publication-journal">Systematic Reviews</p>
-                <p class="publication-abstract">This paper describes the development and implementation of a rapid evidence synthesis service to support healthcare decision-making during the COVID-19 pandemic, demonstrating how methodological rigor can be maintained while meeting urgent policy needs.</p>
-                <div class="publication-links">
-                    <a href="#" class="publication-link">📄 Full Text</a>
-                    <a href="#" class="publication-link">🔗 DOI</a>
-                    <a href="#" class="publication-link">📊 PubMed</a>
-                </div>
-            </div>
+            <!-- 2023 Publications -->
+            <div class="year-section">
+                <h3 class="year-header">2023</h3>
 
-            <!-- Methodology Publication -->
-            <div class="publication-card">
-                <span class="publication-year">2023</span>
-                <h3 class="publication-title">Studies Within A Trial (SWAT): protocol for a systematic review</h3>
-                <p class="publication-authors">Toomey E, Devane D, et al.</p>
-                <p class="publication-journal">Trials</p>
-                <p class="publication-abstract">This systematic review protocol outlines methods for evaluating the effectiveness of Studies Within A Trial (SWATs) in improving trial recruitment and retention, contributing to the evidence base for trial methodology research.</p>
-                <div class="publication-links">
-                    <a href="#" class="publication-link">📄 Full Text</a>
-                    <a href="#" class="publication-link">🔗 DOI</a>
-                    <a href="#" class="publication-link">📊 PubMed</a>
+                <div class="publication-item">
+                    <div class="publication-citation">
+                        <span class="authors">Toomey E, Devane D, et al.</span>
+                        <span class="title">Studies Within A Trial (SWAT): protocol for a systematic review.</span>
+                        <span class="journal">Trials.</span>
+                        <span class="year">2023;24:320.</span>
+                    </div>
+                    <div class="publication-links">
+                        <a href="#" class="publication-link">Full Text</a>
+                        <a href="#" class="publication-link">DOI</a>
+                        <a href="#" class="publication-link">PubMed</a>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Public Engagement Publication -->
-            <div class="publication-card">
-                <span class="publication-year">2023</span>
-                <h3 class="publication-title">The People's Trial: citizen-led priority setting for health research</h3>
-                <p class="publication-authors">Stewart D, Daly A, Devane D, et al.</p>
-                <p class="publication-journal">Research Involvement and Engagement</p>
-                <p class="publication-abstract">This paper describes an innovative approach to involving citizens in health research priority setting through The People's Trial, demonstrating how public engagement can shape research agendas to address questions that matter most to communities.</p>
-                <div class="publication-links">
-                    <a href="#" class="publication-link">📄 Full Text</a>
-                    <a href="#" class="publication-link">🔗 DOI</a>
-                    <a href="#" class="publication-link">📊 PubMed</a>
+                <div class="publication-item">
+                    <div class="publication-citation">
+                        <span class="authors">Stewart D, Daly A, Devane D, et al.</span>
+                        <span class="title">The People's Trial: citizen-led priority setting for health research.</span>
+                        <span class="journal">Research Involvement and Engagement.</span>
+                        <span class="year">2023;9:85.</span>
+                    </div>
+                    <div class="publication-links">
+                        <a href="#" class="publication-link">Full Text</a>
+                        <a href="#" class="publication-link">DOI</a>
+                        <a href="#" class="publication-link">PubMed</a>
+                    </div>
+                </div>
+
+                <div class="publication-item">
+                    <div class="publication-citation">
+                        <span class="authors">Morrissey E, Devane D, et al.</span>
+                        <span class="title">Core outcome sets for trials in pregnancy: a systematic review.</span>
+                        <span class="journal">BMC Pregnancy and Childbirth.</span>
+                        <span class="year">2023;23:456.</span>
+                    </div>
+                    <div class="publication-links">
+                        <a href="#" class="publication-link">Full Text</a>
+                        <a href="#" class="publication-link">DOI</a>
+                        <a href="#" class="publication-link">PubMed</a>
+                    </div>
+                </div>
+
+                <div class="publication-item">
+                    <div class="publication-citation">
+                        <span class="authors">Whelan B, Devane D, et al.</span>
+                        <span class="title">Patient and public involvement in clinical trials: contemporary approaches and future directions.</span>
+                        <span class="journal">Clinical Trials.</span>
+                        <span class="year">2023;20(4):345-356.</span>
+                    </div>
+                    <div class="publication-links">
+                        <a href="#" class="publication-link">Full Text</a>
+                        <a href="#" class="publication-link">DOI</a>
+                        <a href="#" class="publication-link">PubMed</a>
+                    </div>
                 </div>
             </div>
         </div>
