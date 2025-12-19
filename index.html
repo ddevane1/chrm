@@ -270,6 +270,9 @@
             transition: var(--transition-smooth);
             position: relative;
             overflow: hidden;
+            text-decoration: none;
+            display: block;
+            cursor: pointer;
         }
 
         .domain-card::before {
@@ -302,16 +305,6 @@
             font-size: 0.95rem;
             line-height: 1.7;
             margin-bottom: 1.5rem;
-        }
-
-        .domain-tag {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.9);
-            padding: 0.35rem 0.75rem;
-            border-radius: 6px;
-            font-size: 0.8rem;
-            font-weight: 500;
         }
 
         /* Domain Detail Sections */
@@ -976,6 +969,7 @@
                 </div>
             </a>
             <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="#domains">Our Domains</a></li>
                 <li><a href="#training">Training</a></li>
@@ -999,21 +993,18 @@
             </div>
 
             <div class="domains-grid">
-                <div class="domain-card trials">
+                <a href="#domains" class="domain-card trials">
                     <h3>Trials Methodology</h3>
                     <p>Strengthening how clinical trials are designed, conducted, and reported to generate more meaningful and reliable evidence.</p>
-                    <span class="domain-tag">HRB-TMRN</span>
-                </div>
-                <div class="domain-card synthesis">
+                </a>
+                <a href="#evidence-synthesis" class="domain-card synthesis">
                     <h3>Evidence Synthesis</h3>
                     <p>Making evidence syntheses more usable – better designed, conducted, reported, and accessible for decision-makers.</p>
-                    <span class="domain-tag">ESI & Cochrane Ireland</span>
-                </div>
-                <div class="domain-card public">
+                </a>
+                <a href="#public-engagement" class="domain-card public">
                     <h3>Informed Health Choices</h3>
                     <p>Helping patients and the public understand, evaluate and contribute to health research.</p>
-                    <span class="domain-tag">Public Engagement</span>
-                </div>
+                </a>
             </div>
         </div>
     </section>
@@ -1075,7 +1066,7 @@
     <div class="section-divider"></div>
 
     <!-- Domain 2: Evidence Synthesis -->
-    <section class="domain-section synthesis">
+    <section id="evidence-synthesis" class="domain-section synthesis">
         <div class="section-container">
             <div class="section-header fade-in">
                 <div class="domain-icon">📊</div>
@@ -1131,7 +1122,7 @@
     <div class="section-divider"></div>
 
     <!-- Domain 3: Informed Health Choices -->
-    <section class="domain-section public">
+    <section id="public-engagement" class="domain-section public">
         <div class="section-container">
             <div class="section-header fade-in">
                 <div class="domain-icon">💡</div>
@@ -1178,6 +1169,14 @@
                     <div class="initiative-content">
                         <h4>START Competition</h4>
                         <p>Student competition promoting understanding of trials</p>
+                    </div>
+                </div>
+                <div class="initiative-item">
+                    <div class="initiative-icon">🔬</div>
+                    <div class="initiative-content">
+                        <h4>Meet the Scientist</h4>
+                        <p>Connecting communities with researchers through interactive events</p>
+                        <a href="https://www.meetthescientist.ie/" target="_blank" style="color: var(--primary-blue); font-size: 0.85rem;">Visit website →</a>
                     </div>
                 </div>
             </div>

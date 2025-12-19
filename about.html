@@ -524,6 +524,12 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
     </style>
 </head>
 <body>
@@ -540,9 +546,9 @@
                 </div>
             </a>
             <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
                 <li><a href="about.html" class="active">About</a></li>
-                <li><a href="index.html#initiatives">Our Initiatives</a></li>
-                <li><a href="index.html#research">Research</a></li>
+                <li><a href="index.html#domains">Our Domains</a></li>
                 <li><a href="index.html#training">Training</a></li>
                 <li><a href="index.html#contact">Contact</a></li>
             </ul>
@@ -558,7 +564,7 @@
     <section class="hero">
         <div class="hero-content">
             <div class="hero-badge">University of Galway</div>
-            <h1>About CHRM</h1>
+            <h1>About the Centre for Health Research Methodology</h1>
             <p>Advancing health research methodology through collaboration, innovation and excellence.</p>
         </div>
     </section>
@@ -568,16 +574,23 @@
         <div class="section-container">
             <div class="about-content fade-in">
                 <p>The Centre for Health Research Methodology (CHRM) at University of Galway is dedicated to improving the way health research is designed, conducted, and communicated. We bring together expertise in clinical trials methodology, evidence synthesis, and public engagement to ensure that health research is rigorous, relevant, and accessible.</p>
-                
+
                 <p>Our mission is to strengthen health research methodology across Ireland and internationally. Through our interconnected initiatives – the HRB-Trials Methodology Research Network, Evidence Synthesis Ireland and Cochrane Ireland, Informed Health Choices, and the GRADE Ireland Network – we support researchers, inform policymakers, and engage the public in understanding and contributing to health research.</p>
-                
+
                 <p>Based at University of Galway and working with partners across Ireland and internationally, we provide training, methodological support, and conduct cutting-edge research to advance the science of how health research is done. Our work ultimately aims to ensure that healthcare decisions are informed by the best available evidence.</p>
+            </div>
+
+            <div class="scroll-indicator fade-in" style="text-align: center; margin-top: 2rem;">
+                <a href="#team" style="display: inline-flex; flex-direction: column; align-items: center; text-decoration: none; color: var(--primary-blue); gap: 0.5rem;">
+                    <span style="font-size: 0.9rem; font-weight: 500;">Meet Our Team</span>
+                    <span style="font-size: 1.5rem; animation: bounce 2s infinite;">↓</span>
+                </a>
             </div>
         </div>
     </section>
 
     <!-- Team Section -->
-    <section class="team-section">
+    <section id="team" class="team-section">
         <div class="section-container">
             <div class="section-header fade-in">
                 <span class="section-tag">Our People</span>
@@ -791,6 +804,20 @@
                         <div class="team-photo">👤</div>
                         <div class="team-info">
                             <h3>Xuenan Pang</h3>
+                            <div class="role">PhD Scholar</div>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-photo">👤</div>
+                        <div class="team-info">
+                            <h3>Pratik Kumar Bal</h3>
+                            <div class="role">PhD Scholar</div>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-photo">👤</div>
+                        <div class="team-info">
+                            <h3>Saniya Shamim</h3>
                             <div class="role">PhD Scholar</div>
                         </div>
                     </div>
