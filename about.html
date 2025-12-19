@@ -530,6 +530,136 @@
             40% { transform: translateY(-10px); }
             60% { transform: translateY(-5px); }
         }
+
+        /* Team Member Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 37, 64, 0.8);
+            backdrop-filter: blur(5px);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 24px;
+            max-width: 500px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow-strong);
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            background: var(--gradient-hero);
+            padding: 2rem;
+            text-align: center;
+            border-radius: 24px 24px 0 0;
+        }
+
+        .modal-photo {
+            width: 120px;
+            height: 120px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            margin: 0 auto 1rem;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .modal-header h2 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-header .modal-role {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.95rem;
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .modal-body p {
+            color: var(--text-dark);
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-smooth);
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .modal-content {
+            position: relative;
+        }
+
+        .team-card {
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                margin: 1rem;
+                max-height: 85vh;
+            }
+
+            .modal-header {
+                padding: 1.5rem;
+            }
+
+            .modal-photo {
+                width: 100px;
+                height: 100px;
+                font-size: 3rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -602,7 +732,7 @@
             <div class="team-category fade-in">
                 <h3>Leadership</h3>
                 <div class="team-grid">
-                    <div class="team-card director">
+                    <div class="team-card director" data-name="Prof. Declan Devane" data-role="Centre for Health Research Methodology Lead, Director of Evidence Synthesis Ireland, Director of Cochrane Ireland, Director of HRB-Trials Methodology Research Network" data-bio="Biography coming soon. Prof. Declan Devane leads the Centre for Health Research Methodology at University of Galway, bringing together expertise in trials methodology, evidence synthesis, and public engagement to advance health research.">
                         <div class="team-photo">👤</div>
                         <div class="team-info">
                             <h3>Prof. Declan Devane</h3>
@@ -611,21 +741,21 @@
                     </div>
                 </div>
                 <div class="team-grid" style="margin-top: 1.5rem;">
-                    <div class="team-card">
+                    <div class="team-card" data-name="Dr. Nikita Burke" data-role="Programme Manager, Evidence Synthesis Ireland" data-bio="Biography coming soon. Dr. Nikita Burke serves as Programme Manager for Evidence Synthesis Ireland, coordinating research activities and supporting evidence synthesis initiatives across Ireland.">
                         <div class="team-photo">👤</div>
                         <div class="team-info">
                             <h3>Dr. Nikita Burke</h3>
                             <div class="role">Programme Manager, Evidence Synthesis Ireland</div>
                         </div>
                     </div>
-                    <div class="team-card">
+                    <div class="team-card" data-name="Dr. Anne-Marie Millier" data-role="Programme Manager, HRB-Trials Methodology Research Network" data-bio="Biography coming soon. Dr. Anne-Marie Millier manages the HRB-Trials Methodology Research Network, supporting trials methodology research and training across Irish universities.">
                         <div class="team-photo">👤</div>
                         <div class="team-info">
                             <h3>Dr. Anne-Marie Millier</h3>
                             <div class="role">Programme Manager, HRB-Trials Methodology Research Network</div>
                         </div>
                     </div>
-                    <div class="team-card">
+                    <div class="team-card" data-name="Dr. Linda Biesty" data-role="Deputy Director, Evidence Synthesis Ireland & Cochrane Ireland" data-bio="Biography coming soon. Dr. Linda Biesty serves as Deputy Director for Evidence Synthesis Ireland and Cochrane Ireland, contributing to the advancement of evidence synthesis methodology.">
                         <div class="team-photo">👤</div>
                         <div class="team-info">
                             <h3>Dr. Linda Biesty</h3>
@@ -639,21 +769,21 @@
             <div class="team-category fade-in">
                 <h3>Patient & Public Partners</h3>
                 <div class="team-grid">
-                    <div class="team-card">
+                    <div class="team-card" data-name="Hon. Prof. Derek Stewart OBE" data-role="Patient & Public Partner" data-bio="Biography coming soon. Hon. Prof. Derek Stewart OBE brings valuable patient and public perspective to health research methodology, ensuring research remains relevant and accessible to the communities it serves.">
                         <div class="team-photo">👤</div>
                         <div class="team-info">
                             <h3>Hon. Prof. Derek Stewart OBE</h3>
                             <div class="role">Patient & Public Partner</div>
                         </div>
                     </div>
-                    <div class="team-card">
+                    <div class="team-card" data-name="Anne Daly" data-role="Patient & Public Partner" data-bio="Biography coming soon. Anne Daly contributes as a Patient & Public Partner, helping ensure that health research addresses the needs and concerns of patients and the wider public.">
                         <div class="team-photo">👤</div>
                         <div class="team-info">
                             <h3>Anne Daly</h3>
                             <div class="role">Patient & Public Partner</div>
                         </div>
                     </div>
-                    <div class="team-card">
+                    <div class="team-card" data-name="Deirdre McLoughlin" data-role="Patient & Public Partner" data-bio="Biography coming soon. Deirdre McLoughlin serves as a Patient & Public Partner, bringing lived experience and community perspective to health research initiatives.">
                         <div class="team-photo">👤</div>
                         <div class="team-info">
                             <h3>Deirdre McLoughlin</h3>
@@ -667,77 +797,77 @@
             <div class="team-category fade-in">
                 <h3>Research Team</h3>
                 <div class="team-grid">
-                    <div class="team-card">
+                    <div class="team-card" data-name="Dr. Barbara Whelan" data-role="Senior Research Fellow" data-bio="Biography coming soon. Dr. Barbara Whelan is a Senior Research Fellow contributing to health research methodology at the Centre.">
                         <div class="team-photo">👤</div>
                         <div class="team-info">
                             <h3>Dr. Barbara Whelan</h3>
                             <div class="role">Senior Research Fellow</div>
                         </div>
                     </div>
-                    <div class="team-card">
+                    <div class="team-card" data-name="Dr. Julia Louw" data-role="Senior Research Fellow" data-bio="Biography coming soon. Dr. Julia Louw is a Senior Research Fellow working on evidence synthesis and health research methodology.">
                         <div class="team-photo">👤</div>
                         <div class="team-info">
                             <h3>Dr. Julia Louw</h3>
                             <div class="role">Senior Research Fellow</div>
                         </div>
                     </div>
-                    <div class="team-card">
+                    <div class="team-card" data-name="Dr. Emma Kirwan" data-role="Postdoctoral Researcher" data-bio="Biography coming soon. Dr. Emma Kirwan is a Postdoctoral Researcher contributing to trials methodology and evidence synthesis research.">
                         <div class="team-photo">👤</div>
                         <div class="team-info">
                             <h3>Dr. Emma Kirwan</h3>
                             <div class="role">Postdoctoral Researcher</div>
                         </div>
                     </div>
-                    <div class="team-card">
+                    <div class="team-card" data-name="Dr. Eimear Morrisey" data-role="Lecturer in Evidence-Based Healthcare" data-bio="Biography coming soon. Dr. Eimear Morrisey is a Lecturer in Evidence-Based Healthcare, contributing to teaching and research in health research methodology.">
                         <div class="team-photo">👤</div>
                         <div class="team-info">
                             <h3>Dr. Eimear Morrisey</h3>
                             <div class="role">Lecturer in Evidence-Based Healthcare</div>
                         </div>
                     </div>
-                    <div class="team-card">
+                    <div class="team-card" data-name="Dr. Fernandos Ongolly" data-role="Post Doctoral Researcher" data-bio="Biography coming soon. Dr. Fernandos Ongolly is a Post Doctoral Researcher working on evidence synthesis and health research methodology.">
                         <div class="team-photo">👤</div>
                         <div class="team-info">
                             <h3>Dr. Fernandos Ongolly</h3>
                             <div class="role">Post Doctoral Researcher</div>
                         </div>
                     </div>
-                    <div class="team-card">
+                    <div class="team-card" data-name="Dr. Paula Byrne" data-role="Research Fellow" data-bio="Biography coming soon. Dr. Paula Byrne is a Research Fellow contributing to health research methodology at the Centre.">
                         <div class="team-photo">👤</div>
                         <div class="team-info">
                             <h3>Dr. Paula Byrne</h3>
                             <div class="role">Research Fellow</div>
                         </div>
                     </div>
-                    <div class="team-card">
+                    <div class="team-card" data-name="Dr. KM Saif-Ur-Rahman" data-role="Senior Research Fellow" data-bio="Biography coming soon. Dr. KM Saif-Ur-Rahman is a Senior Research Fellow contributing to evidence synthesis and health research methodology.">
                         <div class="team-photo">👤</div>
                         <div class="team-info">
                             <h3>Dr. KM Saif-Ur-Rahman</h3>
                             <div class="role">Senior Research Fellow</div>
                         </div>
                     </div>
-                    <div class="team-card">
+                    <div class="team-card" data-name="Teena Thomas" data-role="Research Assistant" data-bio="Biography coming soon. Teena Thomas is a Research Assistant supporting health research methodology projects at the Centre.">
                         <div class="team-photo">👤</div>
                         <div class="team-info">
                             <h3>Teena Thomas</h3>
                             <div class="role">Research Assistant</div>
                         </div>
                     </div>
-                    <div class="team-card">
+                    <div class="team-card" data-name="Dr. Elaine Toomey" data-role="Lecturer in Evidence-Based Healthcare" data-bio="Biography coming soon. Dr. Elaine Toomey is a Lecturer in Evidence-Based Healthcare, contributing to teaching and research in health research methodology.">
                         <div class="team-photo">👤</div>
                         <div class="team-info">
                             <h3>Dr. Elaine Toomey</h3>
                             <div class="role">Lecturer in Evidence-Based Healthcare</div>
                         </div>
                     </div>
-                    <div class="team-card">
+                    <div class="team-card" data-name="Manon Hubert" data-role="Research Associate" data-bio="Biography coming soon. Manon Hubert is a Research Associate contributing to health research methodology at the Centre.">
                         <div class="team-photo">👤</div>
                         <div class="team-info">
                             <h3>Manon Hubert</h3>
                             <div class="role">Research Associate</div>
                         </div>
                     </div>
-                    <div class="team-card">
+                    <div class="team-card" data-name="Dr. Claire Kerins" data-role="Lecturer in Evidence Based Healthcare" data-bio="Biography coming soon. Dr. Claire Kerins is a Lecturer in Evidence Based Healthcare, contributing to teaching and research in health research methodology.">
                         <div class="team-photo">👤</div>
                         <div class="team-info">
                             <h3>Dr. Claire Kerins</h3>
@@ -751,28 +881,28 @@
             <div class="team-category fade-in">
                 <h3>Operations & Support</h3>
                 <div class="team-grid">
-                    <div class="team-card">
+                    <div class="team-card" data-name="Alanna McLoughlin" data-role="Research Finance Support Manager, Centre for Health Research Methodology" data-bio="Biography coming soon. Alanna McLoughlin provides research finance support for the Centre for Health Research Methodology.">
                         <div class="team-photo">👤</div>
                         <div class="team-info">
                             <h3>Alanna McLoughlin</h3>
                             <div class="role">Research Finance Support Manager<br>Centre for Health Research Methodology</div>
                         </div>
                     </div>
-                    <div class="team-card">
+                    <div class="team-card" data-name="Carol Burke" data-role="Business Manager, HRB-Trials Methodology Research Network" data-bio="Biography coming soon. Carol Burke serves as Business Manager for the HRB-Trials Methodology Research Network.">
                         <div class="team-photo">👤</div>
                         <div class="team-info">
                             <h3>Carol Burke</h3>
                             <div class="role">Business Manager<br>HRB-Trials Methodology Research Network</div>
                         </div>
                     </div>
-                    <div class="team-card">
+                    <div class="team-card" data-name="Sheena Connolly" data-role="Business Support Manager, Evidence Synthesis Ireland" data-bio="Biography coming soon. Sheena Connolly provides business support for Evidence Synthesis Ireland.">
                         <div class="team-photo">👤</div>
                         <div class="team-info">
                             <h3>Sheena Connolly</h3>
                             <div class="role">Business Support Manager<br>Evidence Synthesis Ireland</div>
                         </div>
                     </div>
-                    <div class="team-card">
+                    <div class="team-card" data-name="Dr. Tom Conway" data-role="Training Programme Support Officer, Centre for Health Research Methodology" data-bio="Biography coming soon. Dr. Tom Conway supports training programmes at the Centre for Health Research Methodology.">
                         <div class="team-photo">👤</div>
                         <div class="team-info">
                             <h3>Dr. Tom Conway</h3>
@@ -786,42 +916,42 @@
             <div class="team-category fade-in">
                 <h3>PhD Scholars</h3>
                 <div class="team-grid">
-                    <div class="team-card">
+                    <div class="team-card" data-name="Éle Quinn" data-role="PhD Scholar" data-bio="Biography coming soon. Éle Quinn is a PhD Scholar at the Centre for Health Research Methodology.">
                         <div class="team-photo">👤</div>
                         <div class="team-info">
                             <h3>Éle Quinn</h3>
                             <div class="role">PhD Scholar</div>
                         </div>
                     </div>
-                    <div class="team-card">
+                    <div class="team-card" data-name="Mengqi Li" data-role="PhD Scholar" data-bio="Biography coming soon. Mengqi Li is a PhD Scholar at the Centre for Health Research Methodology.">
                         <div class="team-photo">👤</div>
                         <div class="team-info">
                             <h3>Mengqi Li</h3>
                             <div class="role">PhD Scholar</div>
                         </div>
                     </div>
-                    <div class="team-card">
+                    <div class="team-card" data-name="Simone LePage" data-role="PhD Scholar" data-bio="Biography coming soon. Simone LePage is a PhD Scholar at the Centre for Health Research Methodology.">
                         <div class="team-photo">👤</div>
                         <div class="team-info">
                             <h3>Simone LePage</h3>
                             <div class="role">PhD Scholar</div>
                         </div>
                     </div>
-                    <div class="team-card">
+                    <div class="team-card" data-name="Xuenan Pang" data-role="PhD Scholar" data-bio="Biography coming soon. Xuenan Pang is a PhD Scholar at the Centre for Health Research Methodology.">
                         <div class="team-photo">👤</div>
                         <div class="team-info">
                             <h3>Xuenan Pang</h3>
                             <div class="role">PhD Scholar</div>
                         </div>
                     </div>
-                    <div class="team-card">
+                    <div class="team-card" data-name="Pratik Kumar Bal" data-role="PhD Scholar" data-bio="Biography coming soon. Pratik Kumar Bal is a PhD Scholar at the Centre for Health Research Methodology.">
                         <div class="team-photo">👤</div>
                         <div class="team-info">
                             <h3>Pratik Kumar Bal</h3>
                             <div class="role">PhD Scholar</div>
                         </div>
                     </div>
-                    <div class="team-card">
+                    <div class="team-card" data-name="Saniya Shamim" data-role="PhD Scholar" data-bio="Biography coming soon. Saniya Shamim is a PhD Scholar at the Centre for Health Research Methodology.">
                         <div class="team-photo">👤</div>
                         <div class="team-info">
                             <h3>Saniya Shamim</h3>
@@ -849,6 +979,21 @@
             </div>
         </div>
     </footer>
+
+    <!-- Team Member Modal -->
+    <div class="modal-overlay" id="teamModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <div class="modal-header">
+                <div class="modal-photo" id="modalPhoto">👤</div>
+                <h2 id="modalName">Team Member Name</h2>
+                <div class="modal-role" id="modalRole">Role</div>
+            </div>
+            <div class="modal-body">
+                <p id="modalBio">Biography text goes here.</p>
+            </div>
+        </div>
+    </div>
 
     <script>
         // Navbar scroll effect
@@ -878,6 +1023,46 @@
         }, { threshold: 0.1 });
 
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Team Member Modal
+        const modal = document.getElementById('teamModal');
+        const modalClose = document.getElementById('modalClose');
+        const modalName = document.getElementById('modalName');
+        const modalRole = document.getElementById('modalRole');
+        const modalBio = document.getElementById('modalBio');
+
+        document.querySelectorAll('.team-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const name = card.getAttribute('data-name');
+                const role = card.getAttribute('data-role');
+                const bio = card.getAttribute('data-bio');
+
+                modalName.textContent = name;
+                modalRole.textContent = role;
+                modalBio.textContent = bio;
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        modalClose.addEventListener('click', () => {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
     </script>
 </body>
 </html>
