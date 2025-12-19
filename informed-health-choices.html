@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informed Health Choices | Centre for Health Research Methodology</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-deep: #0a2540;
+            --primary-blue: #1a5f7a;
+            --accent-teal: #57c4c4;
+            --accent-gold: #d4a84b;
+            --accent-purple: #8b5cf6;
+            --text-dark: #1a1a2e;
+            --text-light: #6b7280;
+            --bg-cream: #faf9f7;
+            --bg-white: #ffffff;
+            --bg-light: #f3f4f6;
+            --gradient-hero: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 50%, #c4b5fd 100%);
+            --gradient-card: linear-gradient(145deg, rgba(255,255,255,0.9) 0%, rgba(250,249,247,0.95) 100%);
+            --shadow-soft: 0 4px 20px rgba(10, 37, 64, 0.08);
+            --shadow-medium: 0 8px 40px rgba(10, 37, 64, 0.12);
+            --shadow-strong: 0 20px 60px rgba(10, 37, 64, 0.15);
+            --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            color: var(--text-dark);
+            background: var(--bg-cream);
+            line-height: 1.7;
+            font-weight: 400;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+
+        .pattern-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.03;
+            background-image: 
+                radial-gradient(circle at 25% 25%, var(--accent-purple) 1px, transparent 1px),
+                radial-gradient(circle at 75% 75%, var(--accent-teal) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(10, 37, 64, 0.05);
+            transition: var(--transition-smooth);
+        }
+
+        nav.scrolled {
+            box-shadow: var(--shadow-soft);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0.8rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .logo-mark {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #0a2540 0%, #1a5f7a 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text span:first-child {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-deep);
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text span:last-child {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 0.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            padding: 0.6rem 1.2rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-radius: 8px;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent-purple);
+            background: rgba(139, 92, 246, 0.05);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .mobile-menu-btn span {
+            width: 24px;
+            height: 2px;
+            background: var(--primary-deep);
+            transition: var(--transition-smooth);
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 60vh;
+            background: var(--gradient-hero);
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse at 20% 80%, rgba(87, 196, 196, 0.2) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 40%);
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            color: white;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .section-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(139, 92, 246, 0.1);
+            color: var(--accent-purple);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 1rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            color: var(--primary-deep);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        /* Programmes Grid */
+        .programmes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .programme-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition-smooth);
+            border: 1px solid rgba(10, 37, 64, 0.05);
+        }
+
+        .programme-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-strong);
+        }
+
+        .programme-icon {
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .programme-card:nth-child(1) .programme-icon { background: linear-gradient(135deg, #fef3c7, #fde68a); }
+        .programme-card:nth-child(2) .programme-icon { background: linear-gradient(135deg, #dcfce7, #bbf7d0); }
+        .programme-card:nth-child(3) .programme-icon { background: linear-gradient(135deg, #e0e7ff, #c7d2fe); }
+        .programme-card:nth-child(4) .programme-icon { background: linear-gradient(135deg, #fce7f3, #fbcfe8); }
+        .programme-card:nth-child(5) .programme-icon { background: linear-gradient(135deg, #cffafe, #a5f3fc); }
+        .programme-card:nth-child(6) .programme-icon { background: linear-gradient(135deg, #fef9c3, #fef08a); }
+
+        .programme-content {
+            padding: 1.5rem;
+        }
+
+        .programme-content h3 {
+            font-size: 1.25rem;
+            color: var(--primary-deep);
+            margin-bottom: 0.75rem;
+        }
+
+        .programme-content p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .programme-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-purple);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition-smooth);
+        }
+
+        .programme-link:hover {
+            gap: 0.75rem;
+        }
+
+        /* Mission Section */
+        .mission-section {
+            background: var(--bg-light);
+        }
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .mission-content h2 {
+            font-size: 2rem;
+            color: var(--primary-deep);
+            margin-bottom: 1.5rem;
+        }
+
+        .mission-content p {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .mission-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .stat-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .stat-box .number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--accent-purple);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-box .label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-deep);
+            color: white;
+            padding: 3rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition-smooth);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-teal);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .programmes-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .mission-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: var(--shadow-medium);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .programmes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="pattern-bg"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <div class="logo-mark">CHRM</div>
+                <div class="logo-text">
+                    <span>Centre for Health Research Methodology</span>
+                    <span>University of Galway</span>
+                </div>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="about.html">About</a></li>
+                <li><a href="index.html#initiatives">Our Initiatives</a></li>
+                <li><a href="index.html#research">Research</a></li>
+                <li><a href="index.html#training">Training</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">💡 CHRM Initiative</div>
+            <h1>Informed Health Choices</h1>
+            <p>Helping patients and the public understand, evaluate and contribute to health research.</p>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission-section">
+        <div class="section-container">
+            <div class="mission-grid">
+                <div class="mission-content fade-in">
+                    <h2>Empowering Informed Health Decisions</h2>
+                    <p>Informed Health Choices is dedicated to building public understanding of health research and enabling meaningful participation in the research process. We believe that everyone should have the skills and knowledge to critically evaluate health claims and make informed decisions about their health.</p>
+                    <p>Through innovative programmes, educational resources, and public engagement initiatives, we connect patients and the public with health research – fostering a society where evidence-informed decision making is accessible to all.</p>
+                </div>
+                <div class="mission-stats fade-in">
+                    <div class="stat-box">
+                        <div class="number">50k+</div>
+                        <div class="label">People Reached</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="number">20+</div>
+                        <div class="label">Countries</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="number">100+</div>
+                        <div class="label">Resources Created</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="number">15+</div>
+                        <div class="label">Partner Schools</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programmes -->
+    <section>
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Our Programmes</span>
+                <h2>Connecting People with Health Research</h2>
+                <p>Innovative initiatives that make health research accessible, understandable, and participatory.</p>
+            </div>
+
+            <div class="programmes-grid">
+                <div class="programme-card fade-in">
+                    <div class="programme-icon">🏆</div>
+                    <div class="programme-content">
+                        <h3>The START Competition</h3>
+                        <p>A student-led competition promoting understanding of clinical trials and research methodology among secondary school students across Ireland.</p>
+                        <a href="https://startcompetition.com/" class="programme-link" target="_blank">Learn more →</a>
+                    </div>
+                </div>
+
+                <div class="programme-card fade-in">
+                    <div class="programme-icon">👶</div>
+                    <div class="programme-content">
+                        <h3>The Kids Trial</h3>
+                        <p>An innovative programme teaching children about clinical research and evidence through engaging, age-appropriate activities and experiments.</p>
+                        <a href="https://www.thekidstrial.ie/" class="programme-link" target="_blank">Learn more →</a>
+                    </div>
+                </div>
+
+                <div class="programme-card fade-in">
+                    <div class="programme-icon">🗳️</div>
+                    <div class="programme-content">
+                        <h3>The People's Trial</h3>
+                        <p>A public-led clinical trial where citizens choose the research question and participate in a real randomised trial exploring questions that matter to communities.</p>
+                        <a href="https://thepeoplestrial.ie/" class="programme-link" target="_blank">Learn more →</a>
+                    </div>
+                </div>
+
+                <div class="programme-card fade-in">
+                    <div class="programme-icon">✅</div>
+                    <div class="programme-content">
+                        <h3>iHealth Facts</h3>
+                        <p>A free service helping the public evaluate health claims with evidence-based assessments. Submit any health claim and receive an expert-reviewed verdict.</p>
+                        <a href="https://ihealthfacts.ie/" class="programme-link" target="_blank">Learn more →</a>
+                    </div>
+                </div>
+
+                <div class="programme-card fade-in">
+                    <div class="programme-icon">📚</div>
+                    <div class="programme-content">
+                        <h3>Informed Health Choices Resources</h3>
+                        <p>Comprehensive learning resources helping people understand how to assess treatment claims, developed in collaboration with international partners.</p>
+                        <a href="https://www.informedhealthchoices.org/" class="programme-link" target="_blank">Learn more →</a>
+                    </div>
+                </div>
+
+                <div class="programme-card fade-in">
+                    <div class="programme-icon">🎓</div>
+                    <div class="programme-content">
+                        <h3>Bite-size Learning</h3>
+                        <p>Short, accessible modules introducing evidence synthesis concepts to the public, designed for busy people who want to improve their health literacy.</p>
+                        <a href="https://evidencesynthesisireland.ie/public-modules/" class="programme-link" target="_blank">Learn more →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>Centre for Health Research Methodology</h3>
+                <p>University of Galway, Ireland</p>
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="index.html#contact">Contact</a>
+                <a href="https://www.universityofgalway.ie/">University of Galway</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

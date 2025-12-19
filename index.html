@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centre for Health Research Methodology | University of Galway</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-deep: #0a2540;
+            --primary-blue: #1a5f7a;
+            --accent-teal: #57c4c4;
+            --accent-gold: #d4a84b;
+            --accent-purple: #8b5cf6;
+            --text-dark: #1a1a2e;
+            --text-light: #6b7280;
+            --bg-cream: #faf9f7;
+            --bg-white: #ffffff;
+            --bg-light: #f3f4f6;
+            --gradient-hero: linear-gradient(135deg, #0a2540 0%, #1a5f7a 50%, #2d8a8a 100%);
+            --shadow-soft: 0 4px 20px rgba(10, 37, 64, 0.08);
+            --shadow-medium: 0 8px 40px rgba(10, 37, 64, 0.12);
+            --shadow-strong: 0 20px 60px rgba(10, 37, 64, 0.15);
+            --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            
+            /* Domain colors */
+            --domain-trials: #1a5f7a;
+            --domain-synthesis: #d4a84b;
+            --domain-public: #8b5cf6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            color: var(--text-dark);
+            background: var(--bg-cream);
+            line-height: 1.7;
+            font-weight: 400;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+
+        .pattern-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.03;
+            background-image: 
+                radial-gradient(circle at 25% 25%, var(--primary-blue) 1px, transparent 1px),
+                radial-gradient(circle at 75% 75%, var(--accent-teal) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(10, 37, 64, 0.05);
+            transition: var(--transition-smooth);
+        }
+
+        nav.scrolled {
+            box-shadow: var(--shadow-soft);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0.8rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .logo-mark {
+            width: 48px;
+            height: 48px;
+            background: var(--gradient-hero);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text span:first-child {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-deep);
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text span:last-child {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 0.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            padding: 0.6rem 1.2rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-radius: 8px;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+            background: rgba(26, 95, 122, 0.05);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .mobile-menu-btn span {
+            width: 24px;
+            height: 2px;
+            background: var(--primary-deep);
+            transition: var(--transition-smooth);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: var(--gradient-hero);
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse at 20% 80%, rgba(87, 196, 196, 0.2) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(212, 168, 75, 0.1) 0%, transparent 40%);
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: white;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+        }
+
+        /* Three Domains */
+        .domains-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .domain-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 24px;
+            padding: 2.5rem;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .domain-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+        }
+
+        .domain-card.trials::before { background: var(--domain-trials); }
+        .domain-card.synthesis::before { background: var(--domain-synthesis); }
+        .domain-card.public::before { background: var(--domain-public); }
+
+        .domain-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .domain-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 600;
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        .domain-card.trials .domain-number { color: var(--accent-teal); }
+        .domain-card.synthesis .domain-number { color: var(--accent-gold); }
+        .domain-card.public .domain-number { color: var(--accent-purple); }
+
+        .domain-card h3 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .domain-card p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .domain-tag {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.9);
+            padding: 0.35rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Domain Detail Sections */
+        section {
+            padding: 6rem 2rem;
+        }
+
+        .section-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .domain-section {
+            position: relative;
+        }
+
+        .domain-section .section-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .domain-section .domain-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .domain-section.trials .domain-icon { background: linear-gradient(135deg, var(--domain-trials), #2d8a8a); color: white; }
+        .domain-section.synthesis .domain-icon { background: linear-gradient(135deg, var(--domain-synthesis), #e8c36d); color: white; }
+        .domain-section.public .domain-icon { background: linear-gradient(135deg, var(--domain-public), #a78bfa); color: white; }
+
+        .domain-section .header-content h2 {
+            font-size: 2.25rem;
+            color: var(--primary-deep);
+            margin-bottom: 0.75rem;
+        }
+
+        .domain-section .header-content p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 600px;
+        }
+
+        /* Infrastructure Card */
+        .infrastructure-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-soft);
+            margin-bottom: 2rem;
+            border-left: 4px solid;
+        }
+
+        .domain-section.trials .infrastructure-card { border-left-color: var(--domain-trials); }
+        .domain-section.synthesis .infrastructure-card { border-left-color: var(--domain-synthesis); }
+        .domain-section.public .infrastructure-card { border-left-color: var(--domain-public); }
+
+        .infrastructure-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .infrastructure-badge {
+            background: var(--bg-light);
+            color: var(--text-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .infrastructure-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary-deep);
+            margin-bottom: 1rem;
+        }
+
+        .infrastructure-card > p {
+            color: var(--text-light);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .infrastructure-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition-smooth);
+        }
+
+        .infrastructure-link:hover {
+            gap: 0.75rem;
+        }
+
+        /* Initiatives Grid */
+        .initiatives-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .initiatives-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .initiative-item {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition-smooth);
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .initiative-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .initiative-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .domain-section.trials .initiative-icon { background: rgba(26, 95, 122, 0.1); }
+        .domain-section.synthesis .initiative-icon { background: rgba(212, 168, 75, 0.15); }
+        .domain-section.public .initiative-icon { background: rgba(139, 92, 246, 0.1); }
+
+        .initiative-content h4 {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary-deep);
+            margin-bottom: 0.25rem;
+        }
+
+        .initiative-content p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        .initiative-new {
+            display: inline-block;
+            background: #dcfce7;
+            color: #166534;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-left: 0.5rem;
+        }
+
+        /* Section Divider */
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(10, 37, 64, 0.1), transparent);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Training Section */
+        .training-section {
+            background: var(--bg-light);
+        }
+
+        .training-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(26, 95, 122, 0.08);
+            color: var(--primary-blue);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 1rem;
+        }
+
+        .training-header h2 {
+            font-size: 2.25rem;
+            color: var(--primary-deep);
+            margin-bottom: 1rem;
+        }
+
+        .training-header p {
+            max-width: 600px;
+            margin: 0 auto;
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .event-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition-smooth);
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .event-date {
+            background: var(--gradient-hero);
+            padding: 1.5rem;
+            text-align: center;
+            color: white;
+        }
+
+        .event-day {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            line-height: 1;
+        }
+
+        .event-month {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.8;
+        }
+
+        .event-details {
+            padding: 1.5rem;
+        }
+
+        .event-type {
+            display: inline-block;
+            background: rgba(26, 95, 122, 0.1);
+            color: var(--primary-blue);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.75rem;
+        }
+
+        .event-details h4 {
+            font-size: 1.1rem;
+            color: var(--primary-deep);
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .event-details p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* Partners */
+        .partners-section {
+            background: white;
+        }
+
+        .partners-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .partners-header h2 {
+            font-size: 2rem;
+            color: var(--primary-deep);
+            margin-bottom: 1rem;
+        }
+
+        .partners-header p {
+            color: var(--text-light);
+            font-size: 1.05rem;
+        }
+
+        .partners-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .partner-logo {
+            padding: 1.25rem 1.75rem;
+            background: var(--bg-light);
+            border-radius: 12px;
+            transition: var(--transition-smooth);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .partner-logo:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .partner-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .partner-logo:nth-child(1) .partner-icon { background: var(--primary-blue); }
+        .partner-logo:nth-child(2) .partner-icon { background: #1a365d; }
+        .partner-logo:nth-child(3) .partner-icon { background: #7c3aed; }
+        .partner-logo:nth-child(4) .partner-icon { background: #059669; }
+        .partner-logo:nth-child(5) .partner-icon { background: #dc2626; }
+
+        .partner-name {
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 0.85rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: var(--bg-cream);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .contact-info h2 {
+            font-size: 2rem;
+            color: var(--primary-deep);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info > p {
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .contact-item .icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: rgba(26, 95, 122, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-blue);
+            flex-shrink: 0;
+        }
+
+        .contact-item-content strong {
+            display: block;
+            color: var(--text-dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-item-content span,
+        .contact-item-content a {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            text-decoration: none;
+        }
+
+        .contact-item-content a:hover {
+            color: var(--primary-blue);
+        }
+
+        .contact-map {
+            background: var(--bg-light);
+            border-radius: 20px;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .map-placeholder {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .map-placeholder .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .map-placeholder p {
+            color: var(--text-light);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-deep);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        .footer-social a:hover {
+            background: var(--accent-teal);
+        }
+
+        .footer-links h4 {
+            font-size: 1rem;
+            margin-bottom: 1.25rem;
+            color: white;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition-smooth);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-teal);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 3rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-bottom-links a {
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: var(--transition-smooth);
+        }
+
+        .footer-bottom-links a:hover {
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .domains-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .events-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .domain-section .section-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .domain-section .header-content p {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: var(--shadow-medium);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .partners-grid {
+                gap: 1.5rem;
+            }
+
+            .partner-logo {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="pattern-bg"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <div class="logo-mark">CHRM</div>
+                <div class="logo-text">
+                    <span>Centre for Health Research Methodology</span>
+                    <span>University of Galway</span>
+                </div>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="about.html">About</a></li>
+                <li><a href="#domains">Our Domains</a></li>
+                <li><a href="#training">Training</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-badge">University of Galway</div>
+                <h1>Centre for Health Research Methodology</h1>
+                <p class="hero-subtitle">Advancing health research from trial design to evidence synthesis to informed decision-making – ensuring research is rigorous, relevant, and accessible to all.</p>
+            </div>
+
+            <div class="domains-grid">
+                <div class="domain-card trials">
+                    <div class="domain-number">01</div>
+                    <h3>Trials Methodology</h3>
+                    <p>Strengthening how clinical trials are designed, conducted, and reported to generate more meaningful and reliable evidence.</p>
+                    <span class="domain-tag">HRB-TMRN</span>
+                </div>
+                <div class="domain-card synthesis">
+                    <div class="domain-number">02</div>
+                    <h3>Evidence Synthesis</h3>
+                    <p>Making evidence syntheses more usable – better designed, conducted, reported, and accessible for decision-makers.</p>
+                    <span class="domain-tag">ESI & Cochrane Ireland</span>
+                </div>
+                <div class="domain-card public">
+                    <div class="domain-number">03</div>
+                    <h3>Informed Health Choices</h3>
+                    <p>Helping patients and the public understand, evaluate and contribute to health research.</p>
+                    <span class="domain-tag">Public Engagement</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Domain 1: Trials Methodology -->
+    <section id="domains" class="domain-section trials">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <div class="domain-icon">🔬</div>
+                <div class="header-content">
+                    <h2>Trials Methodology</h2>
+                    <p>Ensuring clinical trials are better planned, designed, conducted and reported – leading to more meaningful results that inform policy and practice.</p>
+                </div>
+            </div>
+
+            <div class="infrastructure-card fade-in">
+                <div class="infrastructure-header">
+                    <span class="infrastructure-badge">Core Infrastructure</span>
+                </div>
+                <h3>HRB-Trials Methodology Research Network</h3>
+                <p>A collaborative initiative across five Irish universities strengthening trials methodology research through support services, training, research innovation, and public engagement. We help researchers design better trials and provide methodological expertise across the trials lifecycle.</p>
+                <a href="https://www.hrb-tmrn.ie/" class="infrastructure-link" target="_blank">Visit HRB-TMRN →</a>
+            </div>
+
+            <div class="initiatives-label fade-in">Research & Initiatives</div>
+            <div class="initiatives-grid fade-in">
+                <div class="initiative-item">
+                    <div class="initiative-icon">🌍</div>
+                    <div class="initiative-content">
+                        <h4>EDICT Doctoral Network <span class="initiative-new">New</span></h4>
+                        <p>€4.3M EU network advancing equity, diversity & inclusion in trials</p>
+                    </div>
+                </div>
+                <div class="initiative-item">
+                    <div class="initiative-icon">🧪</div>
+                    <div class="initiative-content">
+                        <h4>Studies Within a Trial (SWATs)</h4>
+                        <p>Embedded methodology studies to improve trial processes</p>
+                    </div>
+                </div>
+                <div class="initiative-item">
+                    <div class="initiative-icon">🎯</div>
+                    <div class="initiative-content">
+                        <h4>Core Outcome Sets</h4>
+                        <p>Standardised outcomes ensuring trials measure what matters</p>
+                    </div>
+                </div>
+                <div class="initiative-item">
+                    <div class="initiative-icon">💬</div>
+                    <div class="initiative-content">
+                        <h4>Qualitative Research in Trials</h4>
+                        <p>QUESTS Centre expertise in qualitative methodology</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Domain 2: Evidence Synthesis -->
+    <section class="domain-section synthesis">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <div class="domain-icon">📊</div>
+                <div class="header-content">
+                    <h2>Evidence Synthesis</h2>
+                    <p>Making evidence syntheses more usable for decision-makers in healthcare policy and clinical practice across Ireland and beyond.</p>
+                </div>
+            </div>
+
+            <div class="infrastructure-card fade-in">
+                <div class="infrastructure-header">
+                    <span class="infrastructure-badge">Core Infrastructure</span>
+                </div>
+                <h3>Evidence Synthesis Ireland & Cochrane Ireland</h3>
+                <p>An all-Ireland initiative building evidence synthesis knowledge, awareness and capacity. We provide training, fellowships, and produce high-quality systematic reviews and rapid evidence syntheses for organisations including WHO and ECDC. ESI hosts Cochrane Ireland, promoting evidence-informed health decision-making.</p>
+                <a href="https://evidencesynthesisireland.ie/" class="infrastructure-link" target="_blank">Visit Evidence Synthesis Ireland →</a>
+            </div>
+
+            <div class="initiatives-label fade-in">Initiatives & Programmes</div>
+            <div class="initiatives-grid fade-in">
+                <div class="initiative-item">
+                    <div class="initiative-icon">🚨</div>
+                    <div class="initiative-content">
+                        <h4>Evidence Hub for Emerging Health Threats <span class="initiative-new">New</span></h4>
+                        <p>€1.8M national capability for health threat preparedness & response</p>
+                    </div>
+                </div>
+                <div class="initiative-item">
+                    <div class="initiative-icon">⭐</div>
+                    <div class="initiative-content">
+                        <h4>GRADE Ireland Network <span class="initiative-new">New</span></h4>
+                        <p>Building national capacity in GRADE methodology for guidelines</p>
+                    </div>
+                </div>
+                <div class="initiative-item">
+                    <div class="initiative-icon">🎓</div>
+                    <div class="initiative-content">
+                        <h4>Fellowship Programme</h4>
+                        <p>Hands-on training in evidence synthesis with international teams</p>
+                    </div>
+                </div>
+                <div class="initiative-item">
+                    <div class="initiative-icon">⚡</div>
+                    <div class="initiative-content">
+                        <h4>Rapid Reviews</h4>
+                        <p>Timely evidence for WHO, ECDC and national policymakers</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Domain 3: Informed Health Choices -->
+    <section class="domain-section public">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <div class="domain-icon">💡</div>
+                <div class="header-content">
+                    <h2>Informed Health Choices</h2>
+                    <p>Helping patients and the public understand, evaluate and contribute to health research.</p>
+                </div>
+            </div>
+
+            <div class="infrastructure-card fade-in">
+                <div class="infrastructure-header">
+                    <span class="infrastructure-badge">Public Engagement</span>
+                </div>
+                <h3>Empowering Informed Health Decisions</h3>
+                <p>Through innovative programmes, educational resources, and public engagement initiatives, we connect patients and the public with health research – fostering a society where evidence-informed decision making is accessible to all. Our work spans from children's education to citizen-led trials.</p>
+                <a href="informed-health-choices.html" class="infrastructure-link">Explore our programmes →</a>
+            </div>
+
+            <div class="initiatives-label fade-in">Programmes & Resources</div>
+            <div class="initiatives-grid fade-in">
+                <div class="initiative-item">
+                    <div class="initiative-icon">✅</div>
+                    <div class="initiative-content">
+                        <h4>iHealth Facts</h4>
+                        <p>Free service helping public evaluate health claims</p>
+                    </div>
+                </div>
+                <div class="initiative-item">
+                    <div class="initiative-icon">🗳️</div>
+                    <div class="initiative-content">
+                        <h4>The People's Trial</h4>
+                        <p>Public-led trial exploring questions that matter to communities</p>
+                    </div>
+                </div>
+                <div class="initiative-item">
+                    <div class="initiative-icon">👶</div>
+                    <div class="initiative-content">
+                        <h4>The Kids Trial</h4>
+                        <p>Teaching children about clinical research and evidence</p>
+                    </div>
+                </div>
+                <div class="initiative-item">
+                    <div class="initiative-icon">🏆</div>
+                    <div class="initiative-content">
+                        <h4>START Competition</h4>
+                        <p>Student competition promoting understanding of trials</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Training Section -->
+    <section id="training" class="training-section">
+        <div class="section-container">
+            <div class="training-header fade-in">
+                <span class="section-tag">Training & Education</span>
+                <h2>Upcoming Events</h2>
+                <p>Comprehensive training in trials methodology, systematic reviews, GRADE, and evidence synthesis.</p>
+            </div>
+
+            <div class="events-grid">
+                <div class="event-card fade-in">
+                    <div class="event-date">
+                        <div class="event-day">22</div>
+                        <div class="event-month">January 2026</div>
+                    </div>
+                    <div class="event-details">
+                        <span class="event-type">Course</span>
+                        <h4>Introduction to Systematic Reviews</h4>
+                        <p>Four-morning workshop covering protocol development, search methods, and meta-analysis</p>
+                    </div>
+                </div>
+
+                <div class="event-card fade-in">
+                    <div class="event-date">
+                        <div class="event-day">22</div>
+                        <div class="event-month">January 2026</div>
+                    </div>
+                    <div class="event-details">
+                        <span class="event-type">Webinar</span>
+                        <h4>Core GRADE: Part Two</h4>
+                        <p>Prof. Gordon Guyatt on inconsistency, indirectness, and evidence to recommendations</p>
+                    </div>
+                </div>
+
+                <div class="event-card fade-in">
+                    <div class="event-date">
+                        <div class="event-day">03</div>
+                        <div class="event-month">February 2026</div>
+                    </div>
+                    <div class="event-details">
+                        <span class="event-type">In-Person</span>
+                        <h4>IDMC Workshop</h4>
+                        <p>Independent Data Monitoring Committee training in Dublin</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="contact" class="contact-section">
+        <div class="section-container">
+            <div class="contact-grid">
+                <div class="contact-info fade-in">
+                    <h2>Get in Touch</h2>
+                    <p>Whether you're a researcher seeking methodological support, a decision-maker looking for evidence, or interested in our training programmes, we'd love to hear from you.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="icon">📍</div>
+                            <div class="contact-item-content">
+                                <strong>Location</strong>
+                                <span>Áras Moyola, University of Galway, University Road, Galway, Ireland</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="icon">📧</div>
+                            <div class="contact-item-content">
+                                <strong>HRB-TMRN</strong>
+                                <a href="mailto:hrb-tmrn@universityofgalway.ie">hrb-tmrn@universityofgalway.ie</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="icon">📧</div>
+                            <div class="contact-item-content">
+                                <strong>Evidence Synthesis Ireland</strong>
+                                <a href="mailto:esi@universityofgalway.ie">esi@universityofgalway.ie</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-map fade-in">
+                    <div class="map-placeholder">
+                        <div class="icon">🗺️</div>
+                        <p>Áras Moyola<br>University of Galway<br>Galway, Ireland</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>Centre for Health Research Methodology</h3>
+                <p>Advancing health research from trial design to evidence synthesis to informed decision-making.</p>
+                <div class="footer-social">
+                    <a href="https://twitter.com/hrbtmrn" aria-label="Twitter">𝕏</a>
+                    <a href="#" aria-label="LinkedIn">in</a>
+                    <a href="#" aria-label="YouTube">▶</a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Domains</h4>
+                <ul>
+                    <li><a href="https://www.hrb-tmrn.ie/">Trials Methodology</a></li>
+                    <li><a href="https://evidencesynthesisireland.ie/">Evidence Synthesis</a></li>
+                    <li><a href="informed-health-choices.html">Informed Health Choices</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Training</h4>
+                <ul>
+                    <li><a href="https://evidencesynthesisireland.ie/training/">Upcoming Events</a></li>
+                    <li><a href="https://evidencesynthesisireland.ie/fellowships/">Fellowships</a></li>
+                    <li><a href="https://evidencesynthesisireland.ie/webinars/">Webinars</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>About</h4>
+                <ul>
+                    <li><a href="about.html">Our Team</a></li>
+                    <li><a href="https://www.universityofgalway.ie/">University of Galway</a></li>
+                    <li><a href="https://www.hrb.ie/">Health Research Board</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Centre for Health Research Methodology, University of Galway. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Accessibility</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
