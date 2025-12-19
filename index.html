@@ -727,7 +727,11 @@
             transition: var(--transition-smooth);
         }
 
-        .contact-item a.icon:hover {
+        a.contact-item:hover {
+            opacity: 0.8;
+        }
+
+        a.contact-item:hover .icon {
             background: rgba(26, 95, 122, 0.2);
             transform: scale(1.05);
         }
@@ -1277,13 +1281,13 @@
                     <p>Whether you're a researcher seeking methodological support, a decision-maker looking for evidence, or interested in our training programmes, we'd love to hear from you.</p>
                     
                     <div class="contact-details">
-                        <div class="contact-item">
-                            <a href="https://maps.app.goo.gl/yjdXKzT3x7UNTnxK6" target="_blank" class="icon" style="text-decoration: none;">📍</a>
+                        <a href="https://maps.app.goo.gl/yjdXKzT3x7UNTnxK6" target="_blank" class="contact-item" style="text-decoration: none; color: inherit;">
+                            <div class="icon">📍</div>
                             <div class="contact-item-content">
                                 <strong>Location</strong>
                                 <span>Áras Moyola, University of Galway, University Road, Galway, Ireland</span>
                             </div>
-                        </div>
+                        </a>
                         <div class="contact-item">
                             <div class="icon">📧</div>
                             <div class="contact-item-content">
