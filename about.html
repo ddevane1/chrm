@@ -99,6 +99,12 @@
             text-decoration: none;
         }
 
+        .uni-logo {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+        }
+
         .logo-mark {
             width: 48px;
             height: 48px;
@@ -121,7 +127,7 @@
 
         .logo-text span:first-child {
             font-family: 'Playfair Display', serif;
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             font-weight: 600;
             color: var(--primary-deep);
             letter-spacing: -0.5px;
@@ -420,6 +426,13 @@
             padding: 3rem 2rem;
         }
 
+        .footer-logo {
+            height: 60px;
+            width: auto;
+            margin-bottom: 1rem;
+            object-fit: contain;
+        }
+
         .footer-content {
             max-width: 1400px;
             margin: 0 auto;
@@ -690,10 +703,9 @@
     <nav id="navbar">
         <div class="nav-container">
             <a href="index.html" class="nav-logo">
-                <div class="logo-mark">CHRM</div>
+                <img src="images/university-galway-logo.png" alt="University of Galway Logo" class="uni-logo">
                 <div class="logo-text">
                     <span>Centre for Health Research Methodology</span>
-                    <span>University of Galway</span>
                 </div>
             </a>
             <ul class="nav-links" id="navLinks">
@@ -715,7 +727,7 @@
     <section class="hero">
         <div class="hero-content">
             <div class="hero-badge">University of Galway</div>
-            <h1>About the Centre for Health Research Methodology</h1>
+            <h1><span style="color: var(--accent-gold); font-weight: 600;">About</span> the Centre for Health Research Methodology</h1>
             <p>Advancing health research methodology through collaboration, innovation and excellence.</p>
         </div>
     </section>
@@ -1000,6 +1012,7 @@
     <footer>
         <div class="footer-content">
             <div class="footer-brand">
+                <img src="images/university-galway-logo.png" alt="University of Galway Logo" class="footer-logo">
                 <h3>Centre for Health Research Methodology</h3>
                 <p>University of Galway, Ireland</p>
             </div>
@@ -1040,7 +1053,26 @@
         }, { threshold: 0.1 });
 
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
 
+    <!-- Team Member Modal -->
+    <div id="teamModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <div class="modal-photo" id="modalPhoto">👤</div>
+                <div class="modal-info">
+                    <h2 id="modalName"></h2>
+                    <p class="modal-role" id="modalRole"></p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <p id="modalBio"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
         // Modal functionality
         const modal = document.getElementById('teamModal');
         const modalName = document.getElementById('modalName');
@@ -1097,22 +1129,5 @@
             }
         });
     </script>
-
-    <!-- Team Member Modal -->
-    <div id="teamModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <div class="modal-header">
-                <div class="modal-photo" id="modalPhoto">👤</div>
-                <div class="modal-info">
-                    <h2 id="modalName"></h2>
-                    <p class="modal-role" id="modalRole"></p>
-                </div>
-            </div>
-            <div class="modal-body">
-                <p id="modalBio"></p>
-            </div>
-        </div>
-    </div>
 </body>
 </html>

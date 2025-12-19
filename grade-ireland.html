@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRADE Ireland Network | Centre for Health Research Methodology</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-deep: #0a2540;
+            --primary-blue: #1a5f7a;
+            --accent-teal: #57c4c4;
+            --accent-gold: #d4a84b;
+            --accent-purple: #8b5cf6;
+            --text-dark: #1a1a2e;
+            --text-light: #6b7280;
+            --bg-cream: #faf9f7;
+            --bg-white: #ffffff;
+            --bg-light: #f3f4f6;
+            --gradient-hero: linear-gradient(135deg, #0a2540 0%, #1a5f7a 50%, #2d8a8a 100%);
+            --shadow-soft: 0 4px 20px rgba(10, 37, 64, 0.08);
+            --shadow-medium: 0 8px 40px rgba(10, 37, 64, 0.12);
+            --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            color: var(--text-dark);
+            background: var(--bg-cream);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(10, 37, 64, 0.05);
+            transition: var(--transition-smooth);
+        }
+
+        nav.scrolled {
+            box-shadow: var(--shadow-soft);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0.8rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .uni-logo {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text span:first-child {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--primary-deep);
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient-hero);
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Content Section */
+        .content-section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary-deep);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .content-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition-smooth);
+        }
+
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .content-card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .content-card p {
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+
+        /* Resources Section */
+        .resources-section {
+            background: white;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 2rem auto 0;
+        }
+
+        .resource-item {
+            padding: 1.5rem;
+            background: var(--bg-light);
+            border-radius: 8px;
+            text-align: center;
+            transition: var(--transition-smooth);
+        }
+
+        .resource-item:hover {
+            background: var(--bg-cream);
+            transform: translateY(-3px);
+        }
+
+        .resource-item h4 {
+            color: var(--primary-deep);
+            margin-bottom: 0.5rem;
+        }
+
+        .resource-item a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .resource-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-deep);
+            color: white;
+            padding: 3rem 2rem 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-logo {
+            height: 60px;
+            width: auto;
+            margin-bottom: 1rem;
+            object-fit: contain;
+        }
+
+        .footer-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-content p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: var(--shadow-medium);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="images/university-galway-logo.png" alt="University of Galway Logo" class="uni-logo">
+                <div class="logo-text">
+                    <span>Centre for Health Research Methodology</span>
+                </div>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="index.html#domains">Our Domains</a></li>
+                <li><a href="grade-ireland.html" class="active">GRADE Ireland</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>GRADE Ireland Network</h1>
+        <p>Grading of Recommendations Assessment, Development and Evaluation</p>
+        <p>Building capacity in evidence quality assessment across Ireland</p>
+    </section>
+
+    <!-- Main Content -->
+    <section class="content-section">
+        <div class="section-header">
+            <h2>About GRADE Ireland</h2>
+            <p>Supporting healthcare professionals and researchers in evidence-based decision making</p>
+        </div>
+
+        <div class="content-grid">
+            <div class="content-card">
+                <h3>What is GRADE?</h3>
+                <p>GRADE (Grading of Recommendations Assessment, Development and Evaluation) is a transparent framework for developing and presenting summaries of evidence and provides a systematic approach for making clinical practice recommendations.</p>
+            </div>
+            <div class="content-card">
+                <h3>Our Mission</h3>
+                <p>The GRADE Ireland Network aims to build capacity and expertise in the use of GRADE methodology across Ireland, supporting healthcare professionals, researchers, and policymakers in making evidence-informed decisions.</p>
+            </div>
+            <div class="content-card">
+                <h3>Network Activities</h3>
+                <p>We provide training workshops, mentorship programs, and resources to support the implementation of GRADE methodology in systematic reviews, clinical guidelines, and health technology assessments.</p>
+            </div>
+        </div>
+
+        <div class="section-header">
+            <h2>Training & Support</h2>
+            <p>Building expertise in evidence quality assessment</p>
+        </div>
+
+        <div class="content-grid">
+            <div class="content-card">
+                <h3>Workshops</h3>
+                <p>Regular training workshops covering GRADE methodology basics, advanced topics, and software tools. Sessions designed for beginners through to experienced users.</p>
+            </div>
+            <div class="content-card">
+                <h3>Mentorship</h3>
+                <p>One-on-one mentorship and support for researchers and teams implementing GRADE in their systematic reviews and guideline development projects.</p>
+            </div>
+            <div class="content-card">
+                <h3>Resources</h3>
+                <p>Access to GRADE handbooks, software tools, templates, and examples to support your evidence synthesis and guideline development work.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="resources-section">
+        <div class="section-header">
+            <h2>Key Resources</h2>
+            <p>Tools and materials to support GRADE implementation</p>
+        </div>
+
+        <div class="resources-grid">
+            <div class="resource-item">
+                <h4>GRADE Handbook</h4>
+                <p><a href="https://gdt.gradepro.org/app/handbook/handbook.html" target="_blank">Access the official GRADE handbook →</a></p>
+            </div>
+            <div class="resource-item">
+                <h4>GRADEpro GDT</h4>
+                <p><a href="https://www.gradepro.org/" target="_blank">GRADE software tool →</a></p>
+            </div>
+            <div class="resource-item">
+                <h4>Training Materials</h4>
+                <p><a href="#contact">Contact us for training resources →</a></p>
+            </div>
+            <div class="resource-item">
+                <h4>Join the Network</h4>
+                <p><a href="#contact">Become a member →</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <img src="images/university-galway-logo.png" alt="University of Galway Logo" class="footer-logo">
+            <h3>Centre for Health Research Methodology</h3>
+            <p>Advancing health research from trial design to evidence synthesis to informed decision-making.</p>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="#contact">Contact</a>
+                <a href="https://www.universityofgalway.ie/" target="_blank">University of Galway</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
