@@ -104,6 +104,12 @@
             text-decoration: none;
         }
 
+        .uni-logo {
+            height: 45px;
+            width: auto;
+            object-fit: contain;
+        }
+
         .logo-mark {
             width: 48px;
             height: 48px;
@@ -774,6 +780,14 @@
             gap: 3rem;
         }
 
+        .footer-logo {
+            height: 60px;
+            width: auto;
+            margin-bottom: 1rem;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+        }
+
         .footer-brand h3 {
             font-size: 1.5rem;
             margin-bottom: 1rem;
@@ -962,10 +976,9 @@
     <nav id="navbar">
         <div class="nav-container">
             <a href="index.html" class="nav-logo">
-                <div class="logo-mark">CHRM</div>
+                <img src="images/university-galway-logo.png" alt="University of Galway Logo" class="uni-logo">
                 <div class="logo-text">
                     <span>Centre for Health Research Methodology</span>
-                    <span>University of Galway</span>
                 </div>
             </a>
             <ul class="nav-links" id="navLinks">
@@ -1279,6 +1292,7 @@
     <footer>
         <div class="footer-content">
             <div class="footer-brand">
+                <img src="images/university-galway-logo.png" alt="University of Galway Logo" class="footer-logo">
                 <h3>Centre for Health Research Methodology</h3>
                 <p>Advancing health research from trial design to evidence synthesis to informed decision-making.</p>
                 <div class="footer-social">
