@@ -938,6 +938,14 @@
                 grid-template-columns: 1fr;
             }
 
+            .training-stats {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+
+            .event-links {
+                grid-template-columns: 1fr !important;
+            }
+
             .partners-grid {
                 gap: 1.5rem;
             }
@@ -1204,9 +1212,31 @@
         <div class="section-container">
             <div class="training-header fade-in">
                 <span class="section-tag">Training & Education</span>
-                <h2>Upcoming Events</h2>
+                <h2>Building Research Capacity</h2>
                 <p>Comprehensive training in trials methodology, systematic reviews, GRADE, and evidence synthesis.</p>
             </div>
+
+            <!-- Training Stats -->
+            <div class="training-stats fade-in" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-bottom: 3rem;">
+                <div style="background: white; padding: 2rem; border-radius: 16px; text-align: center; box-shadow: var(--shadow-soft);">
+                    <div style="font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 600; color: var(--primary-blue); line-height: 1;">5,000+</div>
+                    <div style="font-size: 0.9rem; color: var(--text-light); margin-top: 0.5rem;">Researchers Trained</div>
+                </div>
+                <div style="background: white; padding: 2rem; border-radius: 16px; text-align: center; box-shadow: var(--shadow-soft);">
+                    <div style="font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 600; color: var(--primary-blue); line-height: 1;">200+</div>
+                    <div style="font-size: 0.9rem; color: var(--text-light); margin-top: 0.5rem;">Training Events</div>
+                </div>
+                <div style="background: white; padding: 2rem; border-radius: 16px; text-align: center; box-shadow: var(--shadow-soft);">
+                    <div style="font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 600; color: var(--primary-blue); line-height: 1;">50+</div>
+                    <div style="font-size: 0.9rem; color: var(--text-light); margin-top: 0.5rem;">Courses Offered</div>
+                </div>
+                <div style="background: white; padding: 2rem; border-radius: 16px; text-align: center; box-shadow: var(--shadow-soft);">
+                    <div style="font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 600; color: var(--primary-blue); line-height: 1;">30+</div>
+                    <div style="font-size: 0.9rem; color: var(--text-light); margin-top: 0.5rem;">Countries Reached</div>
+                </div>
+            </div>
+
+            <h3 style="font-size: 1.5rem; color: var(--primary-deep); margin-bottom: 1.5rem; text-align: center;" class="fade-in">Upcoming Events</h3>
 
             <div class="events-grid">
                 <div class="event-card fade-in">
@@ -1242,6 +1272,26 @@
                         <span class="event-type">In-Person</span>
                         <h4>IDMC Workshop</h4>
                         <p>Independent Data Monitoring Committee training in Dublin</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Event Links -->
+            <div class="event-links fade-in" style="margin-top: 3rem; display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;">
+                <div style="background: white; padding: 2rem; border-radius: 16px; box-shadow: var(--shadow-soft);">
+                    <h4 style="font-size: 1.1rem; color: var(--primary-deep); margin-bottom: 1rem; font-family: 'Playfair Display', serif;">HRB-TMRN Training</h4>
+                    <p style="color: var(--text-light); font-size: 0.95rem; margin-bottom: 1.5rem;">Trials methodology courses, workshops, and webinars for researchers across Ireland.</p>
+                    <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                        <a href="https://www.hrb-tmrn.ie/training-education/training/" target="_blank" style="color: var(--primary-blue); text-decoration: none; font-weight: 600; font-size: 0.9rem;">View Upcoming Events →</a>
+                        <a href="https://www.hrb-tmrn.ie/training-education/past-events/" target="_blank" style="color: var(--text-light); text-decoration: none; font-size: 0.9rem;">Browse Past Events →</a>
+                    </div>
+                </div>
+                <div style="background: white; padding: 2rem; border-radius: 16px; box-shadow: var(--shadow-soft);">
+                    <h4 style="font-size: 1.1rem; color: var(--primary-deep); margin-bottom: 1rem; font-family: 'Playfair Display', serif;">Evidence Synthesis Ireland & Cochrane Ireland</h4>
+                    <p style="color: var(--text-light); font-size: 0.95rem; margin-bottom: 1.5rem;">Systematic review training, GRADE workshops, and evidence synthesis capacity building.</p>
+                    <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                        <a href="https://evidencesynthesisireland.ie/training/" target="_blank" style="color: var(--primary-blue); text-decoration: none; font-weight: 600; font-size: 0.9rem;">View Upcoming Events →</a>
+                        <a href="https://evidencesynthesisireland.ie/webinars/" target="_blank" style="color: var(--text-light); text-decoration: none; font-size: 0.9rem;">Watch Past Webinars →</a>
                     </div>
                 </div>
             </div>
