@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commissioned Evidence Syntheses | Centre for Health Research Methodology</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-deep: #0a2540;
+            --primary-blue: #1a5f7a;
+            --accent-teal: #57c4c4;
+            --accent-gold: #d4a84b;
+            --text-dark: #1a1a2e;
+            --text-light: #6b7280;
+            --bg-cream: #faf9f7;
+            --bg-white: #ffffff;
+            --bg-light: #f3f4f6;
+            --gradient-hero: linear-gradient(135deg, #0a2540 0%, #1a5f7a 50%, #2d8a8a 100%);
+            --shadow-soft: 0 4px 20px rgba(10, 37, 64, 0.08);
+            --shadow-medium: 0 8px 40px rgba(10, 37, 64, 0.12);
+            --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            color: var(--text-dark);
+            background: var(--bg-cream);
+            line-height: 1.7;
+            font-weight: 400;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+
+        .pattern-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.03;
+            background-image:
+                radial-gradient(circle at 25% 25%, var(--accent-teal) 1px, transparent 1px),
+                radial-gradient(circle at 75% 75%, var(--primary-blue) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(10, 37, 64, 0.05);
+            transition: var(--transition-smooth);
+        }
+
+        nav.scrolled {
+            box-shadow: var(--shadow-soft);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0.8rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .uni-logo {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text span:first-child {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-deep);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 0.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            padding: 0.6rem 1.2rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-radius: 8px;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: rgba(26, 95, 122, 0.1);
+            color: var(--primary-blue);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            padding: 10px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .mobile-menu-btn span {
+            width: 24px;
+            height: 2px;
+            background: var(--primary-deep);
+            transition: var(--transition-smooth);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient-hero);
+            padding: 10rem 2rem 5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Content Sections */
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .intro-section {
+            background: var(--bg-white);
+            padding: 4rem 2rem;
+        }
+
+        .intro-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .intro-content p {
+            font-size: 1.15rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* Project Cards */
+        .projects-section {
+            padding: 4rem 2rem;
+        }
+
+        .project-card {
+            background: var(--bg-white);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition-smooth);
+        }
+
+        .project-card:hover {
+            box-shadow: var(--shadow-medium);
+            transform: translateY(-4px);
+        }
+
+        .project-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .project-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-teal) 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            flex-shrink: 0;
+        }
+
+        .project-title h3 {
+            font-size: 1.5rem;
+            color: var(--primary-deep);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        .project-description {
+            color: var(--text-dark);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .publications-header {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .publication-list {
+            list-style: none;
+        }
+
+        .publication-item {
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(10, 37, 64, 0.08);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        .publication-item:last-child {
+            border-bottom: none;
+        }
+
+        .publication-item a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        .publication-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-deep);
+            padding: 3rem 2rem;
+            color: white;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition-smooth);
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: var(--shadow-soft);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .project-header {
+                flex-direction: column;
+            }
+
+            .project-card {
+                padding: 2rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="pattern-bg"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="images/university-galway-logo.png" alt="University of Galway Logo" class="uni-logo">
+                <div class="logo-text">
+                    <span>Centre for Health Research Methodology</span>
+                </div>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="index.html#domains">Our Domains</a></li>
+                <li><a href="index.html#training">Training</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Commissioned Evidence Syntheses</h1>
+            <p>Supporting evidence-informed decision-making through commissioned evidence syntheses for national and international organisations.</p>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-section">
+        <div class="section-container">
+
+            <!-- WHO Commissioned Reviews -->
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <div class="project-icon">🌍</div>
+                    <div class="project-title">
+                        <h3>WHO Commissioned Reviews</h3>
+                        <div class="project-subtitle">World Health Organization</div>
+                    </div>
+                </div>
+                <p class="project-description">
+                    The CHRM produces evidence syntheses commissioned by the World Health Organization. These projects incorporate capacity building, involving junior and senior healthcare professionals and academics from the island of Ireland, as well as ESI Fellows.
+                </p>
+                <div class="publications-header">Selected Publications</div>
+                <ul class="publication-list">
+                    <li class="publication-item">
+                        Smith V, Devane D, Nichol A, Roche D. Care bundles for improving outcomes in patients with COVID-19 or related conditions in intensive care – a rapid scoping review. <em>Cochrane Database of Systematic Reviews</em> 2020, Issue 12. Art. No.: CD013819. <a href="https://doi.org/10.1002/14651858.CD013819" target="_blank">DOI: 10.1002/14651858.CD013819</a>
+                    </li>
+                    <li class="publication-item">
+                        Noone C, McSharry J, Smalle M, Burns A, Dwan K, Devane D, Morrissey EC. Video calls for reducing social isolation and loneliness in older people: a rapid review. <em>Cochrane Database of Systematic Reviews</em> 2020, Issue 5. Art. No.: CD013632. <a href="https://doi.org/10.1002/14651858.CD013632" target="_blank">DOI: 10.1002/14651858.CD013632</a>
+                    </li>
+                    <li class="publication-item">
+                        Houghton C, Meskell P, Delaney H, Smalle M, Glenton C, Booth A, Chan XHS, Devane D, Biesty LM. Barriers and facilitators to healthcare workers' adherence with infection prevention and control (IPC) guidelines for respiratory infectious diseases: a rapid qualitative evidence synthesis. <em>Cochrane Database of Systematic Reviews</em> 2020, Issue 4. Art. No.: CD013582. <a href="https://doi.org/10.1002/14651858.CD013582" target="_blank">DOI: 10.1002/14651858.CD013582</a>
+                    </li>
+                    <li class="publication-item">
+                        Saif-Ur-Rahman KM, Nurdin N, Movsisyan A, Kothari K, Gleeson C, Conway T, Tierney M, Taneri PE, Mulholland D, Tricco AC, Dinnes J, Devane D. Effectiveness of SARS-CoV-2 testing strategies in reducing COVID-19 cases, hospitalisations, and deaths. <em>Cochrane Database Syst Rev.</em> 2025 Oct 2;10(10):CD016192. <a href="https://doi.org/10.1002/14651858.CD016192.pub2" target="_blank">DOI: 10.1002/14651858.CD016192.pub2</a>
+                    </li>
+                    <li class="publication-item">
+                        Saif-Ur-Rahman KM, Nurdin N, Movsisyan A, Kothari K, Conway T, Tierney M, Taneri PE, Mulholland D, Tricco AC, Dinnes J, Devane D. Effectiveness of SARS-CoV-2 testing strategies. <em>Cochrane Database Syst Rev.</em> 2025 Feb 24;2(2):CD016192. <a href="https://doi.org/10.1002/14651858.CD016192" target="_blank">DOI: 10.1002/14651858.CD016192</a>
+                    </li>
+                    <li class="publication-item">
+                        Saif-Ur-Rahman KM, Kothari K, Sadlier C, Moriarty F, Movsisyan A, Whelan S, Taneri PE, Blair M, Guyatt G, Devane D. Effect of pharmacological interventions for the treatment of people with post-COVID-19 condition: a rapid review. <em>Cochrane Evid Synth Methods.</em> 2023 Mar 20;1(1):e12001. <a href="https://doi.org/10.1002/cesm.12001" target="_blank">DOI: 10.1002/cesm.12001</a>
+                    </li>
+                    <li class="publication-item">
+                        Saif-Ur-Rahman KM, Movsisyan A, Kothari K, Conway T, Tierney M, Madden C, Taneri PE, O'Halloran JA, Nurdin N, Murphy L, Mulholland D, Tricco AC, Devane D. Effectiveness of SARS-CoV-2 testing strategies: a scoping review. <em>Cochrane Evid Synth Methods.</em> 2023 Nov 21;1(9):e12030. <a href="https://doi.org/10.1002/cesm.12030" target="_blank">DOI: 10.1002/cesm.12030</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- VESRA Project -->
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <div class="project-icon">🇪🇺</div>
+                    <div class="project-title">
+                        <h3>VESRA Project: Systematic Reviews of Scientific Evidence on Vaccines</h3>
+                        <div class="project-subtitle">EU Commission HaDEA</div>
+                    </div>
+                </div>
+                <p class="project-description">
+                    This funded project supports the activities of EU/EEA National Immunisation Technical Advisory Groups (NITAGs) in their decision-making on national vaccination programmes, including RSV vaccines.
+                </p>
+                <p class="project-description">
+                    The consortium comprises Cochrane Germany, Cochrane Austria, Cochrane Ireland, the Robert Koch Institute, and PwC. Cochrane Ireland, through the University of Galway, leads two key workstreams: (a) evidence syntheses on vaccines and EU/EEA vaccination programmes, and (b) development and delivery of an online training programme on methodologies for assessing evidence, conducting reviews and syntheses, and producing technical guidance documents.
+                </p>
+                <div class="publications-header">Selected Publications</div>
+                <ul class="publication-list">
+                    <li class="publication-item">
+                        Saif-Ur-Rahman KM, King C, Whelan SO, Blair M, Donohue S, Madden C, Kothari K, Sommer I, Harder T, Dauby N, Moustsen-Helms IR, Ruta S, Frère J, Schönfeld V, Poukka E, Lutsar I, Olsson K, Melidou A, Adel Ali K, Dwan K, Devane D. Efficacy and safety of respiratory syncytial virus vaccines. <em>Cochrane Database Syst Rev.</em> 2025 Sep 29;9(9):CD016131. <a href="https://doi.org/10.1002/14651858.CD016131" target="_blank">DOI: 10.1002/14651858.CD016131</a>
+                    </li>
+                    <li class="publication-item">
+                        European Centre for Disease Prevention and Control. A living systematic review and meta-analysis on the efficacy and safety of respiratory syncytial virus vaccines – first update. Stockholm: ECDC; 2025.
+                    </li>
+                    <li class="publication-item">
+                        Wagner G, Gartlehner G, Thaler K, Ledinger D, Feyertag J, Klerings I, Saif-Ur-Rahman KM, Devane D, Olsson K, Adel Ali K, Vygen-Bonnet S, Salo H, Zavadska D, Grgič Vitek M, Oona M, Cunney R, Tuerlinckx D, Kristensen Lomholt F, Sommer I. Immunogenicity and safety of the 15-valent pneumococcal conjugate vaccine: a systematic review and meta-analysis. <em>NPJ Vaccines.</em> 2024 Dec 30;9(1):257. <a href="https://doi.org/10.1038/s41541-024-01048-y" target="_blank">DOI: 10.1038/s41541-024-01048-y</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- HRB Commissioned Reviews -->
+            <div class="project-card fade-in">
+                <div class="project-header">
+                    <div class="project-icon">🇮🇪</div>
+                    <div class="project-title">
+                        <h3>Health Research Board Commissioned Reviews</h3>
+                        <div class="project-subtitle">HRB Ireland</div>
+                    </div>
+                </div>
+                <p class="project-description">
+                    The CHRM applied a jurisdictional scan methodology to synthesise public health preparedness mechanisms across multiple countries. The team also developed methodological guidance for conducting jurisdictional scans, establishing systematic approaches for policy comparison that complement conventional evidence synthesis methods.
+                </p>
+                <div class="publications-header">Selected Publications</div>
+                <ul class="publication-list">
+                    <li class="publication-item">
+                        Saif-Ur-Rahman KM, Burke NN, Murphy L, Parlour R, Boland M, Taneri PE, Reynolds B, Horgan M, Lavis JN, Devane D. Synthesizing public health preparedness mechanisms for high-impact infectious disease threats: a jurisdictional scan. <em>J Evid Based Med.</em> 2025 Jun;18(2):e70019. <a href="https://doi.org/10.1111/jebm.70019" target="_blank">DOI: 10.1111/jebm.70019</a>
+                    </li>
+                    <li class="publication-item">
+                        Saif-Ur-Rahman KM, Waddell K, Lavis JN, Burke NN, Tierney M, Whelan B, Devane D. Jurisdictional scans: methodological considerations for systematically analyzing and comparing policy approaches across different jurisdictions. <em>J Clin Epidemiol.</em> 2025 Oct 18;189:112025. <a href="https://doi.org/10.1016/j.jclinepi.2025.112025" target="_blank">DOI: 10.1016/j.jclinepi.2025.112025</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>Centre for Health Research Methodology</h3>
+                <p>University of Galway, Ireland</p>
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="index.html#contact">Contact</a>
+                <a href="https://www.universityofgalway.ie/">University of Galway</a>
+            </div>
+        </div>
+        <div style="max-width: 1400px; margin: 2rem auto 0; padding-top: 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.1); text-align: center;">
+            <p style="color: rgba(255, 255, 255, 0.5); font-size: 0.85rem;">© 2025 Centre for Health Research Methodology. Website design and build by Declan Devane</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
