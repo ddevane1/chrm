@@ -410,15 +410,23 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            color: var(--primary-blue);
+            background: var(--primary-blue);
+            color: white;
             text-decoration: none;
             font-weight: 600;
             font-size: 0.95rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            margin-top: 0.5rem;
+            margin-right: 0.75rem;
             transition: var(--transition-smooth);
+            box-shadow: 0 2px 8px rgba(26, 95, 122, 0.25);
         }
 
         .infrastructure-link:hover {
-            gap: 0.75rem;
+            background: var(--accent-teal);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(87, 196, 196, 0.35);
         }
 
         /* Initiatives Grid */
@@ -1126,7 +1134,7 @@
                 <h3>Evidence Synthesis Ireland & Cochrane Ireland</h3>
                 <p>An all-Ireland initiative building evidence synthesis knowledge, awareness and capacity. We provide training, fellowships, and produce high-quality systematic reviews and rapid evidence syntheses for organisations including WHO and ECDC. ESI hosts Cochrane Ireland, promoting evidence-informed health decision-making.</p>
                 <a href="https://evidencesynthesisireland.ie/" class="infrastructure-link" target="_blank">Visit Evidence Synthesis Ireland →</a>
-                <a href="https://ireland.cochrane.org/" class="infrastructure-link" target="_blank" style="margin-left: 20px;">Visit Cochrane Ireland →</a>
+                <a href="https://ireland.cochrane.org/" class="infrastructure-link" target="_blank">Visit Cochrane Ireland →</a>
             </div>
 
             <div class="initiatives-label fade-in">Initiatives & Programmes</div>
