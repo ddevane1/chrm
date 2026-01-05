@@ -776,7 +776,7 @@
             <div class="team-category fade-in">
                 <h3>Leadership</h3>
                 <div class="team-grid">
-                    <div class="team-card director"
+                    <div class="team-card director" id="profile-declan-devane"
                          data-name="Prof. Declan Devane"
                          data-role="Centre for Health Research Methodology Lead, Director of Evidence Synthesis Ireland, Director of Cochrane Ireland, Director of HRB-Trials Methodology Research Network"
                          data-bio="Prof. Declan Devane leads the Centre for Health Research Methodology at University of Galway, bringing together expertise in trials methodology, evidence synthesis, and public engagement to advance health research. He directs multiple research networks including Evidence Synthesis Ireland, Cochrane Ireland, and the HRB-Trials Methodology Research Network. His work focuses on improving healthcare decision-making through rigorous research methodology and evidence-based practice.">
@@ -810,7 +810,7 @@
                             <div class="role">Programme Manager<br>HRB-Trials Methodology Research Network</div>
                         </div>
                     </div>
-                    <div class="team-card"
+                    <div class="team-card" id="profile-linda-biesty"
                          data-name="Dr. Linda Biesty"
                          data-role="Deputy Director, Evidence Synthesis Ireland & Cochrane Ireland"
                          data-bio="Dr. Linda Biesty serves as Deputy Director for both Evidence Synthesis Ireland (ESI) and Cochrane Ireland, and Co-Lead of the Qualitative Evidence Synthesis Strand of ESI, supporting the advancement of evidence synthesis methodologies and capacity building. Linda's portfolio spans both ESI and the HRB-TMRN where she is engaged in leading several programmes of research and providing qualitative research expertise. While dedicated to all her CHRM initiatives, Linda has a particular passion for public engagement activities including understanding how we support people, especially children, in evaluating health claims and comprehending clinical trials and evidence synthesis.">
@@ -912,7 +912,7 @@
                             <div class="role">Research Fellow</div>
                         </div>
                     </div>
-                    <div class="team-card"
+                    <div class="team-card" id="profile-saif-ur-rahman"
                          data-name="Dr. KM Saif-Ur-Rahman"
                          data-role="Senior Research Fellow"
                          data-bio="Dr KM Saif-Ur-Rahman is an expert in evidence synthesis and health research methods. He is the Evidence Synthesis Methods Lead for Evidence Synthesis Ireland and Cochrane Ireland, Director of the Ireland GRADE Network, Senior Research Fellow at the Centre for Health Research Methodology, and Honorary Research Senior Lecturer in the College of Medicine, Nursing and Health Sciences at the University of Galway. Trained as a physician with a PhD in epidemiology from Nagoya University, he has worked on infectious and chronic diseases in resource-poor settings using mixed methods. He has published over 130 peer-reviewed papers and led numerous evidence synthesis, including Cochrane reviews. Saif has extensive experience in diverse evidence synthesis approaches, capacity-building training, trials, and surveillance studies. He serves as Associate Editor of BMC Systematic Reviews and Vice-Chair of the University of Galway Research Ethics Committee.">
@@ -1007,7 +1007,7 @@
                             <div class="role">Business Support Manager<br>Evidence Synthesis Ireland</div>
                         </div>
                     </div>
-                    <div class="team-card"
+                    <div class="team-card" id="profile-tom-conway"
                          data-name="Dr. Tom Conway"
                          data-role="Training Programme Support Officer"
                          data-bio="Dr Tom Conway received a BA in Psychology, a MSc in Health Psychology and a PhD in Developmental Psychology all from the University of Galway. After completing his PhD, Tom was appointed as a postdoctoral qualitative researcher with the HRB-TMRN to evaluate the HRB-TMRN Schools Teaching Awareness of Randomised Trials (START) Competition. During this tenure, Tom was also appointed as the HRB-TMRN's Acting Programme Manager. Tom was also a Clinical Trial Co-ordinator at the HRB Clinical Research Facility Galway. Tom is now the Training Programme Support Officer for the HRB-TMRN and Evidence Synthesis Ireland.">
@@ -1237,6 +1237,27 @@
                 setTimeout(() => modal.style.display = 'none', 300);
             }
         });
+
+        // Open modal from URL hash (for direct profile links)
+        function openProfileFromHash() {
+            const hash = window.location.hash;
+            if (hash && hash.startsWith('#profile-')) {
+                const profileCard = document.querySelector(hash);
+                if (profileCard) {
+                    // Small delay to ensure page is ready
+                    setTimeout(() => {
+                        profileCard.click();
+                        // Scroll to team section
+                        document.getElementById('team').scrollIntoView({ behavior: 'smooth' });
+                    }, 300);
+                }
+            }
+        }
+
+        // Check hash on page load
+        window.addEventListener('load', openProfileFromHash);
+        // Check hash when it changes
+        window.addEventListener('hashchange', openProfileFromHash);
     </script>
 </body>
 </html>
