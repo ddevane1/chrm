@@ -1216,25 +1216,37 @@
             });
         });
 
-        // Close modal when clicking X
-        closeModal.addEventListener('click', function() {
+        // Track if modal was opened via direct link from another page
+        let openedViaDirectLink = false;
+        const referrer = document.referrer;
+        const cameFromSameSite = referrer && referrer.includes(window.location.hostname) && !referrer.includes('about.html');
+
+        // Function to close modal and optionally go back
+        function closeModalAndReturn() {
             modal.classList.remove('active');
-            setTimeout(() => modal.style.display = 'none', 300);
-        });
+            setTimeout(() => {
+                modal.style.display = 'none';
+                // If opened via direct link from another page on same site, go back
+                if (openedViaDirectLink && cameFromSameSite) {
+                    window.history.back();
+                }
+            }, 300);
+        }
+
+        // Close modal when clicking X
+        closeModal.addEventListener('click', closeModalAndReturn);
 
         // Close modal when clicking outside
         window.addEventListener('click', function(event) {
             if (event.target === modal) {
-                modal.classList.remove('active');
-                setTimeout(() => modal.style.display = 'none', 300);
+                closeModalAndReturn();
             }
         });
 
         // Close modal with Escape key
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape' && modal.style.display === 'block') {
-                modal.classList.remove('active');
-                setTimeout(() => modal.style.display = 'none', 300);
+                closeModalAndReturn();
             }
         });
 
@@ -1244,6 +1256,7 @@
             if (hash && hash.startsWith('#profile-')) {
                 const profileCard = document.querySelector(hash);
                 if (profileCard) {
+                    openedViaDirectLink = true;
                     // Small delay to ensure page is ready
                     setTimeout(() => {
                         profileCard.click();
