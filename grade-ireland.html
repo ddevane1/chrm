@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GRADE Ireland Network | Centre for Health Research Methodology</title>
+    <title>Ireland GRADE Network | Centre for Health Research Methodology</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -238,6 +238,91 @@
             text-decoration: underline;
         }
 
+        /* GRADE red styling */
+        .grade-red {
+            color: #c41e3a;
+            font-weight: 700;
+        }
+
+        .hero .grade-red {
+            color: #ff4444;
+        }
+
+        /* Team Section */
+        .team-section {
+            background: white;
+            padding: 3rem 2rem;
+            margin-top: 2rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 2rem auto 0;
+        }
+
+        .team-member {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--bg-light);
+            border-radius: 12px;
+            transition: var(--transition-smooth);
+        }
+
+        .team-member:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .team-member-photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            overflow: hidden;
+            background: var(--bg-cream);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+        }
+
+        .team-member-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .team-member h4 {
+            color: var(--primary-deep);
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .team-member h4 a {
+            color: var(--primary-deep);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .team-member h4 a:hover {
+            color: var(--primary-blue);
+        }
+
+        .team-member .role {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .team-member .qualification {
+            font-size: 0.8rem;
+            color: var(--primary-blue);
+            font-style: italic;
+        }
+
         /* Footer */
         footer {
             background: var(--primary-deep);
@@ -358,7 +443,7 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <h1>GRADE Ireland Network</h1>
+        <h1>Ireland <span class="grade-red">GRADE</span> Network</h1>
         <p>Grading of Recommendations Assessment, Development and Evaluation</p>
         <p>Building capacity in evidence quality assessment across Ireland</p>
     </section>
@@ -366,22 +451,22 @@
     <!-- Main Content -->
     <section class="content-section">
         <div class="section-header">
-            <h2>About GRADE Ireland</h2>
+            <h2>About Ireland <span class="grade-red">GRADE</span> Network</h2>
             <p>Supporting healthcare professionals and researchers in evidence-based decision making</p>
         </div>
 
         <div class="content-grid">
             <div class="content-card">
-                <h3>What is GRADE?</h3>
-                <p>GRADE (Grading of Recommendations Assessment, Development and Evaluation) is a transparent framework for developing and presenting summaries of evidence and provides a systematic approach for making clinical practice recommendations.</p>
+                <h3>What is <span class="grade-red">GRADE</span>?</h3>
+                <p><span class="grade-red">GRADE</span> (Grading of Recommendations Assessment, Development and Evaluation) is a transparent framework for developing and presenting summaries of evidence and provides a systematic approach for making clinical practice recommendations.</p>
             </div>
             <div class="content-card">
                 <h3>Our Mission</h3>
-                <p>The GRADE Ireland Network aims to build capacity and expertise in the use of GRADE methodology across Ireland, supporting healthcare professionals, researchers, and policymakers in making evidence-informed decisions.</p>
+                <p>The Ireland <span class="grade-red">GRADE</span> Network aims to build capacity and expertise in the use of <span class="grade-red">GRADE</span> methodology across Ireland, supporting healthcare professionals, researchers, and policymakers in making evidence-informed decisions.</p>
             </div>
             <div class="content-card">
                 <h3>Network Activities</h3>
-                <p>We provide training workshops, mentorship programs, and resources to support the implementation of GRADE methodology in systematic reviews, clinical guidelines, and health technology assessments.</p>
+                <p>We provide training workshops, mentorship programs, and resources to support the implementation of <span class="grade-red">GRADE</span> methodology in systematic reviews, clinical guidelines, and health technology assessments.</p>
             </div>
         </div>
 
@@ -393,15 +478,64 @@
         <div class="content-grid">
             <div class="content-card">
                 <h3>Workshops</h3>
-                <p>Regular training workshops covering GRADE methodology basics, advanced topics, and software tools. Sessions designed for beginners through to experienced users.</p>
+                <p>Regular training workshops covering <span class="grade-red">GRADE</span> methodology basics, advanced topics, and software tools. Sessions designed for beginners through to experienced users.</p>
             </div>
             <div class="content-card">
                 <h3>Mentorship</h3>
-                <p>One-on-one mentorship and support for researchers and teams implementing GRADE in their systematic reviews and guideline development projects.</p>
+                <p>One-on-one mentorship and support for researchers and teams implementing <span class="grade-red">GRADE</span> in their systematic reviews and guideline development projects.</p>
             </div>
             <div class="content-card">
                 <h3>Resources</h3>
-                <p>Access to GRADE handbooks, software tools, templates, and examples to support your evidence synthesis and guideline development work.</p>
+                <p>Access to <span class="grade-red">GRADE</span> handbooks, software tools, templates, and examples to support your evidence synthesis and guideline development work.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Team Section -->
+    <section class="team-section">
+        <div class="section-header">
+            <h2>Our Team</h2>
+            <p>Meet the Ireland <span class="grade-red">GRADE</span> Network team</p>
+        </div>
+
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="team-member-photo">
+                    <img src="images/saif-ur-rahman.jpeg" alt="Dr. KM Saif-Ur-Rahman">
+                </div>
+                <h4><a href="about.html#team">Dr. KM Saif-Ur-Rahman</a></h4>
+                <div class="role">Director</div>
+                <div class="qualification">Evidence synthesis methodologist, <span class="grade-red">GRADE</span> working group member</div>
+            </div>
+            <div class="team-member">
+                <div class="team-member-photo">
+                    <img src="images/declan-devane.jpg" alt="Professor Declan Devane">
+                </div>
+                <h4><a href="about.html#team">Professor Declan Devane</a></h4>
+                <div class="role">Executive committee member</div>
+                <div class="qualification">Trials methodologist, evidence synthesis methodologist, <span class="grade-red">GRADE</span> working group member</div>
+            </div>
+            <div class="team-member">
+                <div class="team-member-photo">
+                    <img src="images/linda-biesty.jpg" alt="Dr. Linda Biesty">
+                </div>
+                <h4><a href="about.html#team">Dr. Linda Biesty</a></h4>
+                <div class="role">Executive committee member</div>
+                <div class="qualification">Qualitative evidence synthesis specialist</div>
+            </div>
+            <div class="team-member">
+                <div class="team-member-photo">👤</div>
+                <h4>Dr. Sinead Duggan</h4>
+                <div class="role">Executive committee member / Northern Ireland Lead</div>
+                <div class="qualification">Quantitative evidence synthesis specialist</div>
+            </div>
+            <div class="team-member">
+                <div class="team-member-photo">
+                    <img src="images/tom-conway.jpg" alt="Dr. Thomas Conway">
+                </div>
+                <h4><a href="about.html#team">Dr. Thomas Conway</a></h4>
+                <div class="role">Training support coordinator</div>
+                <div class="qualification">Evidence synthesist, training coordinator</div>
             </div>
         </div>
     </section>
@@ -410,25 +544,42 @@
     <section class="resources-section">
         <div class="section-header">
             <h2>Key Resources</h2>
-            <p>Tools and materials to support GRADE implementation</p>
+            <p>Tools and materials to support <span class="grade-red">GRADE</span> implementation</p>
         </div>
 
         <div class="resources-grid">
             <div class="resource-item">
-                <h4>GRADE Handbook</h4>
-                <p><a href="https://gdt.gradepro.org/app/handbook/handbook.html" target="_blank">Access the official GRADE handbook →</a></p>
+                <h4><span class="grade-red">GRADE</span> Handbook</h4>
+                <p><a href="https://book.gradepro.org/" target="_blank">Access the official <span class="grade-red">GRADE</span> handbook →</a></p>
             </div>
             <div class="resource-item">
                 <h4>GRADEpro GDT</h4>
-                <p><a href="https://www.gradepro.org/" target="_blank">GRADE software tool →</a></p>
+                <p><a href="https://www.gradepro.org/" target="_blank"><span class="grade-red">GRADE</span> software tool →</a></p>
             </div>
             <div class="resource-item">
                 <h4>Training Materials</h4>
-                <p><a href="#contact">Contact us for training resources →</a></p>
+                <p><a href="https://www.cochrane.org/learn/courses-and-resources/cochrane-methodology/grade" target="_blank">Access training resources →</a></p>
             </div>
             <div class="resource-item">
-                <h4>Join the Network</h4>
-                <p><a href="#contact">Become a member →</a></p>
+                <h4>Join the Ireland <span class="grade-red">GRADE</span> Network</h4>
+                <p>Please email us expressing your interest to become a member at <a href="mailto:ire@gradeworkinggroup.org">ire@gradeworkinggroup.org</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- GRADE Working Group Section -->
+    <section class="content-section" style="padding-top: 0;">
+        <div class="section-header">
+            <h2><span class="grade-red">GRADE</span> Working Group</h2>
+            <p>The international <span class="grade-red">GRADE</span> Working Group</p>
+        </div>
+
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <div class="content-card">
+                <p>The <span class="grade-red">GRADE</span> Working Group is an international collaboration of researchers, methodologists, and guideline developers who have developed the <span class="grade-red">GRADE</span> approach. The Ireland <span class="grade-red">GRADE</span> Network is part of this global community working to improve the quality of evidence assessment in healthcare.</p>
+                <p style="margin-top: 1.5rem;">
+                    <a href="https://www.gradeworkinggroup.org/" target="_blank" style="display: inline-block; background: #c41e3a; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s;">Visit <span style="font-weight: 700;">GRADE</span> Working Group →</a>
+                </p>
             </div>
         </div>
     </section>
