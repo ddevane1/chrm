@@ -1294,16 +1294,16 @@
             <!-- Training Stats -->
             <div class="training-stats fade-in" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 3rem;">
                 <div style="background: white; padding: 2rem; border-radius: 16px; text-align: center; box-shadow: var(--shadow-soft);">
-                    <div style="font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 600; color: var(--primary-blue); line-height: 1;">100,000+</div>
+                    <div class="counter-number" data-target="100000" data-suffix="+" data-format="comma" style="font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 600; color: var(--primary-blue); line-height: 1;">0</div>
                     <div style="font-size: 0.9rem; color: var(--text-light); margin-top: 0.5rem;">Attendees</div>
                     <div style="font-size: 0.75rem; color: var(--text-light); margin-top: 0.25rem;">(including over 50k children!)</div>
                 </div>
                 <div style="background: white; padding: 2rem; border-radius: 16px; text-align: center; box-shadow: var(--shadow-soft);">
-                    <div style="font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 600; color: var(--primary-blue); line-height: 1;">200+</div>
+                    <div class="counter-number" data-target="200" data-suffix="+" style="font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 600; color: var(--primary-blue); line-height: 1;">0</div>
                     <div style="font-size: 0.9rem; color: var(--text-light); margin-top: 0.5rem;">Training Events</div>
                 </div>
                 <div style="background: white; padding: 2rem; border-radius: 16px; text-align: center; box-shadow: var(--shadow-soft);">
-                    <div style="font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 600; color: var(--primary-blue); line-height: 1;">130+</div>
+                    <div class="counter-number" data-target="130" data-suffix="+" style="font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 600; color: var(--primary-blue); line-height: 1;">0</div>
                     <div style="font-size: 0.9rem; color: var(--text-light); margin-top: 0.5rem;">Countries Reached</div>
                 </div>
             </div>
@@ -1474,6 +1474,51 @@
                     navLinks.classList.remove('active');
                 }
             });
+        });
+
+        // Counter animation
+        function animateCounter(element) {
+            const target = parseInt(element.dataset.target);
+            const suffix = element.dataset.suffix || '';
+            const useComma = element.dataset.format === 'comma';
+            const duration = 2000;
+            const startTime = performance.now();
+
+            function formatNumber(num) {
+                if (useComma) {
+                    return num.toLocaleString();
+                }
+                return num.toString();
+            }
+
+            function update(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const easeOut = 1 - Math.pow(1 - progress, 3);
+                const current = Math.floor(easeOut * target);
+
+                element.textContent = formatNumber(current) + suffix;
+
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                }
+            }
+
+            requestAnimationFrame(update);
+        }
+
+        // Observe counter elements
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+                    entry.target.classList.add('counted');
+                    animateCounter(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.counter-number').forEach(el => {
+            counterObserver.observe(el);
         });
 
     </script>
