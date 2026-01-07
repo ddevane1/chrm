@@ -138,49 +138,82 @@
             margin: 0 auto;
         }
 
-        /* Under Development Section */
-        .content-section {
-            max-width: 800px;
-            margin: 4rem auto;
-            padding: 0 2rem;
-            text-align: center;
+        /* Main Content */
+        .main-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
         }
 
-        .development-notice {
+        .intro-section {
             background: white;
-            padding: 4rem 3rem;
+            padding: 3rem;
             border-radius: 16px;
             box-shadow: var(--shadow-soft);
+            margin-bottom: 3rem;
         }
 
-        .development-icon {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
+        .intro-section p {
+            font-size: 1.15rem;
+            color: var(--text-dark);
+            line-height: 1.9;
         }
 
-        .development-notice h2 {
-            font-size: 2rem;
+        .content-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .content-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-soft);
+            border-left: 4px solid var(--primary-blue);
+            transition: var(--transition-smooth);
+        }
+
+        .content-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .content-card h2 {
+            font-size: 1.5rem;
             color: var(--primary-deep);
             margin-bottom: 1rem;
         }
 
-        .development-notice p {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            margin-bottom: 2rem;
+        .content-card p {
+            font-size: 1.05rem;
+            color: var(--text-dark);
             line-height: 1.8;
         }
 
-        .back-link {
-            display: inline-block;
-            color: var(--primary-blue);
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition-smooth);
+        .closing-section {
+            background: linear-gradient(135deg, var(--bg-light) 0%, #e8f4f8 100%);
+            padding: 2.5rem;
+            border-radius: 16px;
+            margin-top: 3rem;
+            text-align: center;
         }
 
-        .back-link:hover {
-            color: var(--accent-teal);
+        .closing-section p {
+            font-size: 1.15rem;
+            color: var(--primary-deep);
+            font-weight: 500;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            .intro-section,
+            .content-card {
+                padding: 2rem;
+            }
+
+            .content-card h2 {
+                font-size: 1.3rem;
+            }
         }
 
         /* Footer */
@@ -298,14 +331,31 @@
         <p>Supporting the evidence-to-policy ecosystem to strengthen the use of research in policy decision-making</p>
     </section>
 
-    <!-- Under Development Notice -->
-    <section class="content-section">
-        <div class="development-notice">
-            <div class="development-icon">🚧</div>
-            <h2>Under Development</h2>
-            <p>This page is currently under development. The Evidence to Policy initiative supports the evidence-to-policy ecosystem to strengthen the use of research in policy decision-making.</p>
-            <p>Please check back soon for more information about this important programme.</p>
-            <a href="index.html#evidence-synthesis" class="back-link">← Back to Evidence Synthesis</a>
+    <!-- Main Content -->
+    <section class="main-content">
+        <div class="intro-section">
+            <p>Our evidence to policy work focuses on strengthening the systems, capacity, and partnerships that enable research evidence to be routinely and effectively used in policy decision-making. We take a system-level approach, recognising that evidence use depends not only on the availability of research, but on the structures, skills, and relationships that connect evidence to real policy decisions.</p>
+        </div>
+
+        <div class="content-grid">
+            <div class="content-card">
+                <h2>Strengthening Evidence Support Systems</h2>
+                <p>We have conducted a Rapid Evidence Support System Assessment (RESSA) of health policymaking in Ireland to understand the demand for and supply of evidence, and the coordination mechanisms that connect research to policy needs. The assessment is designed to provide timely, practical insights that can inform immediate improvements, while also identifying longer-term opportunities to strengthen coordination, responsiveness, and alignment with decision-maker priorities. This assessment is underpinned by transparent and robust methods, with full protocols available via our publications.</p>
+            </div>
+
+            <div class="content-card">
+                <h2>Building Capacity Within the Civil Service</h2>
+                <p>Alongside system-level work, we collaborate with the Evidence for Policy Unit in the Department of Further and Higher Education, Research, Innovation and Science and the Civil Service Research Network to support capacity-building within the civil service. This includes the development and delivery of training aimed at strengthening skills in commissioning, accessing, and applying research evidence, helping civil servants to make confident and transparent use of evidence within policy processes.</p>
+            </div>
+
+            <div class="content-card">
+                <h2>Global Collaboration and Evidence Infrastructure</h2>
+                <p>This work is aligned with international efforts to strengthen evidence synthesis infrastructure, including engagement with the Evidence Synthesis Infrastructure Collaborative (ESIC), a global coalition working to build shared systems, tools, and partnerships that make evidence synthesis more timely, relevant, and accessible for policy and decision-making.</p>
+            </div>
+        </div>
+
+        <div class="closing-section">
+            <p>Together, these activities support a more connected, responsive, and resilient evidence-to-policy ecosystem.</p>
         </div>
     </section>
 
