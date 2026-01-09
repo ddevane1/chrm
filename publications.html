@@ -581,12 +581,8 @@
     <!-- Stats Banner -->
     <div class="stats-banner">
         <div class="stat-item">
-            <div class="stat-number" id="totalPubs">276</div>
+            <div class="stat-number" id="totalPubs">0</div>
             <div class="stat-label">Publications</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-number">2014–2026</div>
-            <div class="stat-label">Years</div>
         </div>
     </div>
 
@@ -844,8 +840,26 @@
             navLinks.classList.toggle('active');
         });
 
+        // Counter animation
+        function animateCounter(element, target, duration = 2000) {
+            let start = 0;
+            const increment = target / (duration / 16);
+            const counter = setInterval(() => {
+                start += increment;
+                if (start >= target) {
+                    element.textContent = target;
+                    clearInterval(counter);
+                } else {
+                    element.textContent = Math.floor(start);
+                }
+            }, 16);
+        }
+
         // Initial render
         filterPublications();
+
+        // Animate the publications counter
+        animateCounter(document.getElementById('totalPubs'), publications.length);
     </script>
 </body>
 </html>
