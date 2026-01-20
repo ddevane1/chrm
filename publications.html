@@ -559,6 +559,128 @@
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
+        footer {
+            background: var(--primary-deep);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .footer-logo {
+            height: 60px;
+            width: auto;
+            margin-bottom: 1rem;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+            opacity: 0.9;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-chrm-logo {
+            height: 60px;
+            width: auto;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        .footer-social a:hover {
+            background: var(--accent-teal);
+        }
+
+        .footer-links h4 {
+            font-size: 1rem;
+            margin-bottom: 1.25rem;
+            color: white;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition-smooth);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-teal);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 3rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 992px) {
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -656,19 +778,39 @@
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <h3>Centre for Health Research Methodology</h3>
-            <p>University of Galway</p>
-            <p>Advancing health research from trial design to evidence synthesis to informed decision-making.</p>
+            <div class="footer-brand">
+                <img src="images/chrm-logo-reversed.png" alt="CHRM Logo" class="footer-chrm-logo">
+                <p>University of Galway</p>
+                <p>Advancing health research from trial design to evidence synthesis to informed decision-making.</p>
+            </div>
             <div class="footer-links">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="publications.html">Publications</a>
-                <a href="index.html#contact">Contact</a>
-                <a href="https://www.universityofgalway.ie/" target="_blank">University of Galway</a>
+                <h4>Domains</h4>
+                <ul>
+                    <li><a href="https://www.hrb-tmrn.ie/">Trials Methodology</a></li>
+                    <li><a href="https://evidencesynthesisireland.ie/">Evidence Synthesis</a></li>
+                    <li><a href="informed-health-choices.html">Informed Health Choices</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Training</h4>
+                <ul>
+                    <li><a href="https://evidencesynthesisireland.ie/training/">Upcoming Events</a></li>
+                    <li><a href="https://evidencesynthesisireland.ie/fellowships/">Fellowships</a></li>
+                    <li><a href="https://evidencesynthesisireland.ie/webinars/">Webinars</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>About</h4>
+                <ul>
+                    <li><a href="about.html">Our Team</a></li>
+                    <li><a href="https://www.universityofgalway.ie/">University of Galway</a></li>
+                    <li><a href="https://www.hrb.ie/">Health Research Board</a></li>
+                </ul>
             </div>
         </div>
-        <div style="max-width: 1400px; margin: 2rem auto 0; padding-top: 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.1); text-align: center;">
-            <p style="color: rgba(255, 255, 255, 0.5); font-size: 0.85rem;">© 2025 Centre for Health Research Methodology. Website design and build by Declan Devane</p>
+        <div class="footer-bottom">
+            <p>© 2025 Centre for Health Research Methodology, University of Galway. All rights reserved. <a href="privacy-policy.html" style="color: rgba(255, 255, 255, 0.6);">Privacy Policy</a></p>
+            <p style="color: rgba(255, 255, 255, 0.5); font-size: 0.85rem;">Website design and build by Declan Devane</p>
         </div>
     </footer>
 
