@@ -1,0 +1,10 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <!-- CHRM Constellation Logo - Favicon (4-arm version, simplified) -->
+  <!-- Satellite elements -->
+  <rect x="2" y="2" width="5" height="5" fill="#E85A9C" opacity="0.85" transform="rotate(15 4 4)"/>
+  <circle cx="27" cy="5" r="3" fill="#2E86AB" opacity="0.85"/>
+  <rect x="3" y="24" width="4" height="4" fill="#F9A03F" opacity="0.8"/>
+  <circle cx="27" cy="27" r="2.5" fill="#0D9488" opacity="0.8"/>
+  <!-- Central hub -->
+  <circle cx="16" cy="16" r="6" fill="#0D9488"/>
+</svg>

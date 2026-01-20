@@ -1,0 +1,17 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- CHRM Constellation Logo - App Icon (4-arm version) -->
+  <!-- Background -->
+  <rect width="512" height="512" fill="#0D9488" rx="96"/>
+  <!-- Connecting lines -->
+  <line x1="256" y1="256" x2="100" y2="100" stroke="#ffffff" stroke-width="8" opacity="0.3"/>
+  <line x1="256" y1="256" x2="412" y2="90" stroke="#ffffff" stroke-width="8" opacity="0.3"/>
+  <line x1="256" y1="256" x2="100" y2="412" stroke="#ffffff" stroke-width="8" opacity="0.3"/>
+  <line x1="256" y1="256" x2="412" y2="422" stroke="#ffffff" stroke-width="8" opacity="0.3"/>
+  <!-- Satellite elements -->
+  <rect x="65" y="65" width="55" height="55" fill="#ffffff" opacity="0.6" transform="rotate(15 92 92)"/>
+  <circle cx="412" cy="90" r="35" fill="#ffffff" opacity="0.6"/>
+  <rect x="72" y="380" width="50" height="50" fill="#ffffff" opacity="0.5"/>
+  <circle cx="412" cy="422" r="32" fill="#ffffff" opacity="0.55"/>
+  <!-- Central hub -->
+  <circle cx="256" cy="256" r="80" fill="#ffffff"/>
+</svg>

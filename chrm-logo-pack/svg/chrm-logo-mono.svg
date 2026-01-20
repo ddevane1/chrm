@@ -1,0 +1,18 @@
+<svg width="340" height="90" viewBox="0 0 340 90" xmlns="http://www.w3.org/2000/svg">
+  <!-- CHRM Constellation Logo - Monochrome (4-arm version) -->
+  <!-- Connecting lines -->
+  <line x1="50" y1="45" x2="22" y2="20" stroke="#cccccc" stroke-width="1.5"/>
+  <line x1="50" y1="45" x2="78" y2="18" stroke="#cccccc" stroke-width="1.5"/>
+  <line x1="50" y1="45" x2="22" y2="70" stroke="#cccccc" stroke-width="1.5"/>
+  <line x1="50" y1="45" x2="78" y2="72" stroke="#cccccc" stroke-width="1.5"/>
+  <!-- Satellite elements -->
+  <rect x="15" y="13" width="10" height="10" fill="#1a1a1a" opacity="0.25" transform="rotate(15 20 18)"/>
+  <circle cx="78" cy="18" r="6" fill="#1a1a1a" opacity="0.3"/>
+  <rect x="17" y="65" width="9" height="9" fill="#1a1a1a" opacity="0.2"/>
+  <circle cx="78" cy="72" r="5.5" fill="#1a1a1a" opacity="0.35"/>
+  <!-- Central hub -->
+  <circle cx="50" cy="45" r="14" fill="#1a1a1a"/>
+  <!-- Text -->
+  <text x="115" y="50" font-family="Helvetica Neue, Arial, sans-serif" font-size="36" font-weight="700" fill="#1a1a1a" letter-spacing="0">CHRM</text>
+  <text x="115" y="70" font-family="Helvetica Neue, Arial, sans-serif" font-size="11" font-weight="400" fill="#999999" letter-spacing="0.5">Health Research Methodology</text>
+</svg>
