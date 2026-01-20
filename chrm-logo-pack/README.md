@@ -26,7 +26,6 @@ chrm-logo-pack/
 │   ├── chrm-logo-mono.svg            # Monochrome version
 │   ├── chrm-logo-reversed.svg        # For dark backgrounds
 │   ├── chrm-logo-stacked.svg         # Vertical/stacked layout
-│   ├── chrm-logo-fullname.svg        # Full name version
 │   ├── chrm-icon.svg                 # Icon only (no text)
 │   ├── chrm-favicon.svg              # Simplified for small sizes
 │   ├── chrm-wordmark.svg             # Text only
@@ -34,17 +33,15 @@ chrm-logo-pack/
 │   └── chrm-social-card.svg          # Social media card (1200x630)
 │
 ├── png/                              # Raster files
-│   ├── chrm-logo-primary.png         # 340px wide
-│   ├── chrm-logo-primary@2x.png      # 680px wide (retina)
-│   ├── chrm-logo-primary@3x.png      # 1020px wide (high-res)
+│   ├── chrm-logo-primary.png         # 380px wide
+│   ├── chrm-logo-primary@2x.png      # 760px wide (retina)
+│   ├── chrm-logo-primary@3x.png      # 1140px wide (high-res)
 │   ├── chrm-logo-mono.png            # Monochrome
 │   ├── chrm-logo-mono@2x.png
 │   ├── chrm-logo-reversed.png        # For dark backgrounds
 │   ├── chrm-logo-reversed@2x.png
 │   ├── chrm-logo-stacked.png         # Vertical layout
 │   ├── chrm-logo-stacked@2x.png
-│   ├── chrm-logo-fullname.png        # Full name version
-│   ├── chrm-logo-fullname@2x.png
 │   ├── chrm-icon-80.png              # Icon sizes
 │   ├── chrm-icon-160.png
 │   ├── chrm-icon-256.png
@@ -72,12 +69,6 @@ Use `chrm-logo-primary` for most applications:
 - Presentations
 - Email signatures
 - Letterheads
-
-#### Full Name Version
-Use `chrm-logo-fullname` when:
-- The abbreviation CHRM needs clarification
-- Formal/official documents
-- First introduction of the brand
 
 #### Stacked Logo
 Use `chrm-logo-stacked` when:
@@ -115,7 +106,7 @@ Use `chrm-logo-reversed` for:
 
 **Text specifications:**
 - "CHRM" — Helvetica Neue Bold, #1a1a1a
-- "Health Research Methodology" — Helvetica Neue Regular, #999999
+- "Centre for Health Research Methodology" — Helvetica Neue Regular, #999999
 
 **Web-safe alternatives:**
 - Arial Bold / Arial Regular
@@ -146,8 +137,8 @@ font-family: "Helvetica Neue", Arial, sans-serif;
 
 ### Minimum Sizes
 
-- **Primary horizontal logo:** minimum 150px wide
-- **Stacked logo:** minimum 80px wide  
+- **Primary horizontal logo:** minimum 180px wide
+- **Stacked logo:** minimum 100px wide  
 - **Icon only:** minimum 32px
 - **Favicon:** 16px minimum
 
