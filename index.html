@@ -1013,6 +1013,71 @@
             }
         }
 
+        /* Hiring Banner */
+        .hiring-banner {
+            background: linear-gradient(135deg, #0a2540 0%, #1a5f7a 100%);
+            padding: 1.25rem 2rem;
+        }
+
+        .hiring-banner-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .hiring-banner-text {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: white;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .hiring-badge {
+            background: var(--accent-gold);
+            color: var(--primary-deep);
+            padding: 0.3rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        .hiring-banner a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            transition: var(--transition-smooth);
+            white-space: nowrap;
+        }
+
+        .hiring-banner a:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        @media (max-width: 768px) {
+            .hiring-banner-inner {
+                flex-direction: column;
+                gap: 0.75rem;
+                text-align: center;
+            }
+        }
+
         /* Animations */
         .fade-in {
             opacity: 0;
@@ -1078,6 +1143,17 @@
             </div>
         </div>
     </section>
+
+    <!-- Hiring Banner -->
+    <div class="hiring-banner">
+        <div class="hiring-banner-inner">
+            <div class="hiring-banner-text">
+                <span class="hiring-badge">We're Hiring</span>
+                <span>Join our team &ndash; Research Fellow position now open at the Centre for Health Research Methodology</span>
+            </div>
+            <a href="vacancies.html">View Vacancy &rarr;</a>
+        </div>
+    </div>
 
     <!-- Domain 1: Trials Methodology -->
     <section id="domains" class="domain-section trials">
