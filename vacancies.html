@@ -301,6 +301,199 @@
             line-height: 1.8;
         }
 
+        /* Vacancy Card */
+        .vacancy-card {
+            border: 1px solid rgba(10, 37, 64, 0.08);
+            border-radius: 16px;
+            padding: 2.5rem;
+            background: var(--bg-white);
+            margin-bottom: 2rem;
+        }
+
+        .vacancy-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .vacancy-header {
+            margin-bottom: 2rem;
+        }
+
+        .vacancy-header h3 {
+            font-size: 1.6rem;
+            color: var(--primary-deep);
+            margin-bottom: 0.5rem;
+        }
+
+        .vacancy-header .vacancy-subtitle {
+            font-size: 1.05rem;
+            color: var(--primary-blue);
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+
+        .vacancy-header .vacancy-ref {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-top: 0.5rem;
+        }
+
+        .vacancy-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .vacancy-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(26, 95, 122, 0.06);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: var(--primary-deep);
+            font-weight: 500;
+        }
+
+        .vacancy-meta-item svg {
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+            fill: var(--primary-blue);
+        }
+
+        .vacancy-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .vacancy-section h4 {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary-deep);
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .vacancy-section p {
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .vacancy-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .vacancy-section ul li {
+            position: relative;
+            padding-left: 1.25rem;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--text-dark);
+        }
+
+        .vacancy-section ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.65rem;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent-teal);
+        }
+
+        .vacancy-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(10, 37, 64, 0.08);
+        }
+
+        .btn-apply {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--primary-blue);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition-smooth);
+        }
+
+        .btn-apply:hover {
+            background: var(--primary-deep);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: transparent;
+            color: var(--primary-blue);
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: 2px solid rgba(26, 95, 122, 0.2);
+            transition: var(--transition-smooth);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary-blue);
+            background: rgba(26, 95, 122, 0.05);
+        }
+
+        .vacancy-closing {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(212, 168, 75, 0.1);
+            color: #8a6d2b;
+            padding: 0.75rem 1.25rem;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .vacancy-closing svg {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+            fill: #8a6d2b;
+        }
+
+        @media (max-width: 768px) {
+            .vacancy-card {
+                padding: 1.5rem;
+            }
+
+            .vacancy-meta {
+                flex-direction: column;
+            }
+
+            .vacancy-actions {
+                flex-direction: column;
+            }
+
+            .btn-apply, .btn-secondary {
+                justify-content: center;
+            }
+        }
+
         /* Footer */
         footer {
             background: var(--primary-deep);
@@ -472,10 +665,98 @@
     <section>
         <div class="section-container">
             <div class="vacancies-content fade-in">
-                <div class="no-vacancies">
-                    <h3>No Current Vacancies</h3>
-                    <p>There are no vacancies at present. Please check back regularly for new opportunities to join the Centre for Health Research Methodology.</p>
-                    <p style="margin-top: 1.5rem;">For general enquiries about working with us, please <a href="index.html#contact" style="color: var(--primary-blue); text-decoration: none; font-weight: 500;">contact us</a>.</p>
+                <div class="vacancy-card">
+                    <div class="vacancy-header">
+                        <h3>Research Fellow &ndash; Hub Operations and Commissioning Manager (Evidence Synthesis)</h3>
+                        <p class="vacancy-subtitle">Evidence Synthesis Hub for Emerging Health Threats Ireland</p>
+                        <p class="vacancy-subtitle">Evidence Synthesis Ireland and Cochrane Ireland, Centre for Health Research Methodology</p>
+                        <p class="vacancy-ref">Ref. No. 011596</p>
+                    </div>
+
+                    <div class="vacancy-closing">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+                        Closing date: 17:00 (Irish Time) on 19th February 2026
+                    </div>
+
+                    <div class="vacancy-meta">
+                        <span class="vacancy-meta-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                            University of Galway (Hybrid)
+                        </span>
+                        <span class="vacancy-meta-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-2 .89-2 2v11c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>
+                            Full-time, Fixed Term (24 months)
+                        </span>
+                        <span class="vacancy-meta-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+                            &euro;65,889 &ndash; &euro;86,014 per annum
+                        </span>
+                        <span class="vacancy-meta-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 18H5V9h14v11z"/></svg>
+                            Start: 2nd March 2026
+                        </span>
+                    </div>
+
+                    <div class="vacancy-section">
+                        <h4>About the Role</h4>
+                        <p>Applications are invited from suitably qualified candidates for a full-time, fixed term position as a Research Fellow with the Centre for Health Research Methodology at the University of Galway, Ireland. This position is funded by the Centre for Health Research Methodology and is available from 2nd March 2026 for 24 months (with potential extension subject to funding).</p>
+                        <p>The Research Fellow, Hub Operations and Commissioning Manager will contribute to the Hub's core team by managing the Hub's end-to-end operational delivery system, including intake, brokering, commissioning coordination, scheduling, workflow management, and performance monitoring. The post holder will ensure that rapid and strategic evidence products move through a predictable workflow from request through to delivery, with clear quality checkpoints and transparent documentation.</p>
+                    </div>
+
+                    <div class="vacancy-section">
+                        <h4>Programme Context</h4>
+                        <p>Evidence Synthesis Ireland is establishing the <strong>Evidence Synthesis Hub for Emerging Health Threats Ireland</strong> (the Hub) on behalf of the Department of Health (Office of the Chief Medical Officer). The Hub will serve as a national one-stop capability for synthesising evidence on major health threats, adopting a One Health, all-hazards perspective that spans pandemics, epidemics, infectious hazards, antimicrobial resistance, novel pathogens, and cross-cutting behavioural, scientific, and health system challenges.</p>
+                    </div>
+
+                    <div class="vacancy-section">
+                        <h4>Key Duties</h4>
+                        <ul>
+                            <li>Evidence request intake, triage and allocation workflow management</li>
+                            <li>Commissioning and spoke network coordination with national partners</li>
+                            <li>Quality assurance workflow management and document control</li>
+                            <li>Development and maintenance of the Hub Operating Manual and SOPs</li>
+                            <li>Activation readiness, simulation exercises and after-action reviews</li>
+                            <li>Horizon scanning and early warning coordination</li>
+                            <li>International collaboration interface and shared standards development</li>
+                            <li>Reporting, monitoring and applied operational learning</li>
+                            <li>Governance, compliance and good research practice</li>
+                        </ul>
+                    </div>
+
+                    <div class="vacancy-section">
+                        <h4>Essential Requirements</h4>
+                        <ul>
+                            <li>PhD (or equivalent doctoral qualification) in a health-related discipline or closely relevant area</li>
+                            <li>Minimum 4 years' relevant experience in a professional research role in an applied research or evidence-to-decision environment</li>
+                            <li>Demonstrated experience coordinating complex, multi-partner delivery programmes in health research, public health, evidence synthesis, or a related setting</li>
+                            <li>Demonstrated understanding of evidence synthesis workflows and the operational requirements needed to deliver rapid products transparently</li>
+                            <li>Demonstrated experience working with external stakeholders and partners across organisational boundaries</li>
+                            <li>Strong organisational, documentation, and communication skills</li>
+                        </ul>
+                    </div>
+
+                    <div class="vacancy-section">
+                        <h4>Conditions</h4>
+                        <ul>
+                            <li>Must be resident in Ireland for the duration of the contract</li>
+                            <li>Hybrid role with flexibility for remote working; regular on-campus presence at University of Galway expected</li>
+                            <li>Willingness to travel within Ireland as required, and internationally on occasion</li>
+                        </ul>
+                    </div>
+
+                    <div class="vacancy-section">
+                        <p>For informal enquiries, please contact Professor Declan Devane at <a href="mailto:declan.devane@universityofgalway.ie" style="color: var(--primary-blue); text-decoration: none; font-weight: 500;">declan.devane@universityofgalway.ie</a></p>
+                    </div>
+
+                    <div class="vacancy-actions">
+                        <a href="https://www.universityofgalway.ie/about-us/jobs/" class="btn-apply" target="_blank" rel="noopener">
+                            Apply Now
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M5 12h14m-7-7l7 7-7 7" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                        <a href="https://www.universityofgalway.ie/human-resources/pay_and_grading/salary-scales/research/" class="btn-secondary" target="_blank" rel="noopener">
+                            View Salary Scales
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
