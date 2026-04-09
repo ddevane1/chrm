@@ -445,10 +445,20 @@
         .team-category h3 {
             font-size: 1.25rem;
             color: var(--primary-deep);
-            margin-bottom: 1.5rem;
+            margin-bottom: 0.5rem;
             padding-bottom: 0.75rem;
             border-bottom: 2px solid var(--accent-teal);
             display: inline-block;
+        }
+
+        .team-category-description {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .team-category h3 + .team-grid {
+            margin-top: 1rem;
         }
 
         /* Footer */
@@ -968,9 +978,10 @@
                 </div>
             </div>
 
-            <!-- Research Team -->
+            <!-- Core Research Team -->
             <div class="team-category fade-in">
-                <h3>Research Team</h3>
+                <h3>Core research team</h3>
+                <p class="team-category-description">Researchers funded through CHRM initiatives</p>
                 <div class="team-grid">
                     <div class="team-card"
                          data-name="Dr. Julia Louw"
@@ -993,19 +1004,9 @@
                         </div>
                     </div>
                     <div class="team-card"
-                         data-name="Dr. Eimear Morrissey"
-                         data-role="Lecturer in Evidence-Based Healthcare"
-                         data-bio="Dr Eimear Morrissey is a Lecturer in Evidence-Based Healthcare. She holds a PhD in Health Psychology and works across applied health research and health research methodology with a strong person-centred focus on the design, evaluation and implementation of complex interventions, evidence synthesis, and the integration of equity and inclusion in clinical research. She is Coordinator of the EU-funded (€4.4 million) MSCA Doctoral Network Advancing Equity, Diversity and Inclusion in Clinical Trials (EDICT), which is training 16 PhD students across Europe to strengthen inclusive approaches to trial design and conduct. Her work is underpinned by a strong commitment to meaningful public and patient involvement throughout the research lifecycle.">
-                        <div class="team-photo"><img src="images/eimear-morrissey.jpg" alt="Dr. Eimear Morrissey"></div>
-                        <div class="team-info">
-                            <h3>Dr. Eimear Morrissey</h3>
-                            <div class="role">Lecturer in Evidence-Based Healthcare</div>
-                        </div>
-                    </div>
-                    <div class="team-card"
                          data-name="Dr. Fernandos Ongolly"
                          data-role="Postdoctoral Researcher"
-                         data-bio="Dr Fernandos Ongolly is a Postdoctoral Researcher at the School of Nursing & Midwifery, University of Galway, working on the PROACT EU Response Qualitative Evidence Synthesis (QES) on trial methodologies. With a background in medical anthropology, Dr Ongolly completed a PhD at University College Dublin, where his research focused on health access and equity. He has extensive experience in epidemic and pandemic-related research, particularly in HIV prevention and treatment, with a focus on last-mile access barriers. His current research interests include the ethics of collaborative research, especially benefit sharing in North–South research partnerships.">
+                         data-bio="Dr Fernandos Ongolly is a Postdoctoral Researcher at the School of Nursing & Midwifery, University of Galway, working on the PROACT EU Response Qualitative Evidence Synthesis (QES) on trial methodologies. With a background in medical anthropology, Dr Ongolly completed a PhD at University College Dublin, where his research focused on health access and equity. He has extensive experience in epidemic and pandemic-related research, particularly in HIV prevention and treatment, with a focus on last-mile access barriers. His current research interests include the ethics of collaborative research, especially benefit sharing in North-South research partnerships.">
                         <div class="team-photo"><img src="images/fernandos-ongolly.png" alt="Dr. Fernandos Ongolly"></div>
                         <div class="team-info">
                             <h3>Dr. Fernandos Ongolly</h3>
@@ -1043,6 +1044,34 @@
                         </div>
                     </div>
                     <div class="team-card"
+                         data-name="Manon Hubert"
+                         data-role="Research Associate"
+                         data-bio="Manon Hubert holds a Master's degree in International Human Rights Law from the University of Galway. After completing her studies, she worked for six years in community sectors across France and Ireland, supporting minority rights and inclusion. She now manages two national outreach initiatives for 4th to 6th class primary school children. The START Competition (School Teaching Awareness of Randomised Trials) gives children the opportunity to run their own randomised controlled trial in the classroom. The Meet the Scientist webinar series connects classrooms with scientists through interactive online sessions.">
+                        <div class="team-photo"><img src="images/manon-hubert.png" alt="Manon Hubert"></div>
+                        <div class="team-info">
+                            <h3>Manon Hubert</h3>
+                            <div class="role">Research Associate</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Affiliated Faculty -->
+            <div class="team-category fade-in">
+                <h3>Affiliated faculty</h3>
+                <p class="team-category-description">University of Galway faculty whose research aligns with the centre's mission</p>
+                <div class="team-grid">
+                    <div class="team-card"
+                         data-name="Dr. Eimear Morrissey"
+                         data-role="Lecturer in Evidence-Based Healthcare"
+                         data-bio="Dr Eimear Morrissey is a Lecturer in Evidence-Based Healthcare. She holds a PhD in Health Psychology and works across applied health research and health research methodology with a strong person-centred focus on the design, evaluation and implementation of complex interventions, evidence synthesis, and the integration of equity and inclusion in clinical research. She is Coordinator of the EU-funded (€4.4 million) MSCA Doctoral Network Advancing Equity, Diversity and Inclusion in Clinical Trials (EDICT), which is training 16 PhD students across Europe to strengthen inclusive approaches to trial design and conduct. Her work is underpinned by a strong commitment to meaningful public and patient involvement throughout the research lifecycle.">
+                        <div class="team-photo"><img src="images/eimear-morrissey.jpg" alt="Dr. Eimear Morrissey"></div>
+                        <div class="team-info">
+                            <h3>Dr. Eimear Morrissey</h3>
+                            <div class="role">Lecturer in Evidence-Based Healthcare</div>
+                        </div>
+                    </div>
+                    <div class="team-card"
                          data-name="Dr. Elaine Toomey"
                          data-role="Lecturer in Evidence-Based Healthcare"
                          data-bio="Dr Elaine Toomey is a Lecturer in Evidence Based Healthcare in the University of Galway, Programme Director of the MSc in Evidence-Based Future Healthcare. She is also a Health Research Board Applying Research into Policy and Practice Research Fellow. She is a Cochrane Ireland/Evidence Synthesis Ireland Research Associate and a member of both the Centre for Health Research Methodology and the Health Behaviour Change Research Group in the University of Galway. Elaine's research focuses on using insights from behavioural and implementation science to improve how health research is produced and implemented to maximise health outcomes.">
@@ -1053,23 +1082,13 @@
                         </div>
                     </div>
                     <div class="team-card"
-                         data-name="Manon Hubert"
-                         data-role="Research Associate"
-                         data-bio="Manon Hubert holds a Master's degree in International Human Rights Law from the University of Galway. After completing her studies, she worked for six years in community sectors across France and Ireland, supporting minority rights and inclusion. She now manages two national outreach initiatives for 4th to 6th class primary school children. The START Competition (School Teaching Awareness of Randomised Trials) gives children the opportunity to run their own randomised controlled trial in the classroom. The Meet the Scientist webinar series connects classrooms with scientists through interactive online sessions.">
-                        <div class="team-photo"><img src="images/manon-hubert.png" alt="Manon Hubert"></div>
-                        <div class="team-info">
-                            <h3>Manon Hubert</h3>
-                            <div class="role">Research Associate</div>
-                        </div>
-                    </div>
-                    <div class="team-card"
                          data-name="Dr. Claire Kerins"
                          data-role="Lecturer in Evidence-Based Healthcare"
                          data-bio="Dr Claire Kerins is a Lecturer in Evidence-Based Healthcare at the University of Galway. Her research focuses on the translation of evidence into health policy and practice, with expertise in evidence synthesis and implementation science. She is the only non-US member of the Consolidated Framework for Implementation Research (CFIR) Leadership Team at the US Veterans Health Administration. A registered dietitian, she previously held clinical leadership roles including Lead Specialist Dietitian at Croí, the West of Ireland Cardiac and Stroke Foundation. She completed her PhD via the Health Research Board-funded SPHeRE Programme in Population Health and Health Services Research.">
                         <div class="team-photo"><img src="images/claire-kerins.jpg" alt="Dr. Claire Kerins"></div>
                         <div class="team-info">
                             <h3>Dr. Claire Kerins</h3>
-                            <div class="role">Lecturer in Evidence Based Healthcare</div>
+                            <div class="role">Lecturer in Evidence-Based Healthcare</div>
                         </div>
                     </div>
                     <div class="team-card"
@@ -1091,6 +1110,27 @@
                             <h3>Dr. Catherine Houghton</h3>
                             <div class="role">Associate Professor</div>
                         </div>
+                    </div>
+                    <div class="team-card"
+                         data-name="Dr. Simone Lepage"
+                         data-role="Lecturer in Midwifery"
+                         data-bio="Dr Simone Lepage is a Lecturer in Midwifery in the School of Nursing and Midwifery at the University of Galway and a Registered Midwife and Nurse. Her research focuses on online trial methodology, patient and public involvement, and methodological approaches to designing and delivering accessible educational approaches to support health and research literacy and public engagement. Her doctoral project, The Kid's Trial, invited children, aged 7 to 12 years, to co-create and conduct a global, online randomised trial. Her broader research interests include evidence synthesis, participatory and inclusive research methods, health equity, and strengthening the interface between research methodology, education, and healthcare practice.">
+                        <div class="team-photo"><img src="images/simone-lepage.png" alt="Dr. Simone Lepage"></div>
+                        <div class="team-info">
+                            <h3>Dr. Simone Lepage</h3>
+                            <div class="role">Lecturer in Midwifery</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- External Affiliates -->
+            <div class="team-category fade-in">
+                <h3>External affiliates</h3>
+                <p class="team-category-description">Collaborators from other institutions whose work aligns with the centre</p>
+                <div class="team-grid">
+                    <div style="grid-column: 1 / -1; text-align: center; padding: 2rem; color: var(--text-light); font-style: italic;">
+                        Coming soon
                     </div>
                 </div>
             </div>
@@ -1153,16 +1193,6 @@
                         <div class="team-photo"><img src="images/ele-quinn.jpeg" alt="Éle Quinn"></div>
                         <div class="team-info">
                             <h3>Éle Quinn</h3>
-                            <div class="role">PhD Scholar</div>
-                        </div>
-                    </div>
-                    <div class="team-card"
-                         data-name="Simone Lepage"
-                         data-role="PhD Scholar"
-                         data-bio="Simone Lepage is a PhD candidate in the School of Nursing and Midwifery at the University of Galway and a Registered Midwife and Nurse. Her research focuses on online trial methodology, patient and public involvement, and methodological approaches to designing and delivering accessible educational approaches to support health and research literacy and public engagement. Her doctoral project, The Kid's Trial, invited children, aged 7–12 years, to co-create and conduct a global, online randomised trial. Her broader research interests include evidence synthesis, participatory and inclusive research methods, health equity, and strengthening the interface between research methodology, education, and healthcare practice.">
-                        <div class="team-photo"><img src="images/simone-lepage.png" alt="Simone Lepage"></div>
-                        <div class="team-info">
-                            <h3>Simone Lepage</h3>
                             <div class="role">PhD Scholar</div>
                         </div>
                     </div>
