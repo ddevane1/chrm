@@ -40,6 +40,7 @@
             --domain-trials: #00bcd4;
             --domain-synthesis: #d4a84b;
             --domain-public: #8b5cf6;
+            --domain-training: #2e9d6e;
         }
 
         * {
@@ -331,6 +332,57 @@
             margin-bottom: 1.5rem;
         }
 
+        /* Training Banner */
+        .training-banner {
+            display: block;
+            background: white;
+            border-top: 4px solid var(--domain-training);
+            border-bottom: 1px solid rgba(10, 37, 64, 0.06);
+            padding: 1.1rem 2rem;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        .training-banner:hover {
+            background: rgba(46, 157, 110, 0.06);
+        }
+
+        .training-banner-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+
+        .training-banner-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--domain-training), #4db58a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .training-banner p {
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        .training-banner-link {
+            color: var(--domain-training);
+            font-weight: 600;
+            font-size: 0.95rem;
+            white-space: nowrap;
+        }
+
         /* Domain Detail Sections */
         section {
             padding: 6rem 2rem;
@@ -366,6 +418,20 @@
         .domain-section.trials .domain-icon { background: linear-gradient(135deg, var(--domain-trials), #2d8a8a); color: white; }
         .domain-section.synthesis .domain-icon { background: linear-gradient(135deg, var(--domain-synthesis), #e8c36d); color: white; }
         .domain-section.public .domain-icon { background: linear-gradient(135deg, var(--domain-public), #a78bfa); color: white; }
+        .domain-section.training .domain-icon { background: linear-gradient(135deg, var(--domain-training), #4db58a); color: white; }
+
+        .cross-domain-badge {
+            display: inline-block;
+            background: rgba(46, 157, 110, 0.12);
+            color: #20704e;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.75rem;
+        }
 
         .domain-section .header-content h2 {
             font-size: 2.25rem;
@@ -1079,6 +1145,15 @@
         </div>
     </section>
 
+    <!-- Training Banner -->
+    <a href="#training" class="training-banner">
+        <div class="training-banner-inner">
+            <span class="training-banner-icon">🎓</span>
+            <p><strong>Training across all our domains:</strong> over 100,000 attendees at 200+ events, reaching 130+ countries.</p>
+            <span class="training-banner-link">Explore training →</span>
+        </div>
+    </a>
+
     <!-- Domain 1: Trials Methodology -->
     <section id="domains" class="domain-section trials">
         <div class="section-container">
@@ -1307,12 +1382,15 @@
     </section>
 
     <!-- Training Section -->
-    <section id="training" class="training-section">
+    <section id="training" class="domain-section training training-section">
         <div class="section-container">
-            <div class="training-header fade-in">
-                <span class="section-tag">Training & Education</span>
-                <h2>Building Research Capacity</h2>
-                <p>Comprehensive training in trials methodology and evidence synthesis, and Empowering Informed Health Decisions.</p>
+            <div class="section-header fade-in">
+                <div class="domain-icon">🎓</div>
+                <div class="header-content">
+                    <span class="cross-domain-badge">Across all three domains</span>
+                    <h2>Building Research Capacity</h2>
+                    <p>Comprehensive training in trials methodology, evidence synthesis, and informed health choices. One programme of training and education spanning everything we do.</p>
+                </div>
             </div>
 
             <!-- Training Stats -->
@@ -1334,14 +1412,14 @@
 
             <!-- Training Links -->
             <div class="event-links fade-in" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
-                <div style="background: white; padding: 2rem; border-radius: 16px; box-shadow: var(--shadow-soft);">
+                <div style="background: white; padding: 2rem; border-radius: 16px; box-shadow: var(--shadow-soft); border-top: 3px solid var(--domain-training);">
                     <h4 style="font-size: 1.1rem; color: var(--primary-deep); margin-bottom: 1rem; font-family: 'Playfair Display', serif;">MSc in Evidence-Based Future Healthcare</h4>
                     <p style="color: var(--text-light); font-size: 0.95rem; margin-bottom: 1.5rem;">A 90 ECTS master's awarded by the University of Galway. Fully online and flexible, equipping professionals across disciplines to interpret, apply, and lead the use of evidence in healthcare decision-making.</p>
                     <div style="display: flex; flex-direction: column; gap: 0.75rem;">
                         <a href="https://www.universityofgalway.ie/courses/taught-postgraduate-courses/evidence-based-future-healthcare.html" target="_blank" rel="noopener" style="color: var(--primary-blue); text-decoration: none; font-weight: 600; font-size: 0.9rem;">Explore the MSc →</a>
                     </div>
                 </div>
-                <div style="background: white; padding: 2rem; border-radius: 16px; box-shadow: var(--shadow-soft);">
+                <div style="background: white; padding: 2rem; border-radius: 16px; box-shadow: var(--shadow-soft); border-top: 3px solid var(--domain-training);">
                     <h4 style="font-size: 1.1rem; color: var(--primary-deep); margin-bottom: 1rem; font-family: 'Playfair Display', serif;">HRB-TMRN Training</h4>
                     <p style="color: var(--text-light); font-size: 0.95rem; margin-bottom: 1.5rem;">Trials methodology courses, workshops, and webinars for researchers across Ireland.</p>
                     <div style="display: flex; flex-direction: column; gap: 0.75rem;">
@@ -1349,7 +1427,7 @@
                         <a href="https://www.hrb-tmrn.ie/training-education/online-training-repository/" target="_blank" style="color: var(--text-light); text-decoration: none; font-size: 0.9rem;">Browse Past Events →</a>
                     </div>
                 </div>
-                <div style="background: white; padding: 2rem; border-radius: 16px; box-shadow: var(--shadow-soft);">
+                <div style="background: white; padding: 2rem; border-radius: 16px; box-shadow: var(--shadow-soft); border-top: 3px solid var(--domain-training);">
                     <h4 style="font-size: 1.1rem; color: var(--primary-deep); margin-bottom: 1rem; font-family: 'Playfair Display', serif;">Evidence Synthesis Ireland & Cochrane Ireland</h4>
                     <p style="color: var(--text-light); font-size: 0.95rem; margin-bottom: 1.5rem;">Systematic review training, GRADE workshops, and evidence synthesis capacity building.</p>
                     <div style="display: flex; flex-direction: column; gap: 0.75rem;">
@@ -1357,14 +1435,14 @@
                         <a href="https://evidencesynthesisireland.ie/webinars/" target="_blank" style="color: var(--text-light); text-decoration: none; font-size: 0.9rem;">Watch Past Webinars →</a>
                     </div>
                 </div>
-                <div style="background: white; padding: 2rem; border-radius: 16px; box-shadow: var(--shadow-soft);">
+                <div style="background: white; padding: 2rem; border-radius: 16px; box-shadow: var(--shadow-soft); border-top: 3px solid var(--domain-training);">
                     <h4 style="font-size: 1.1rem; color: var(--primary-deep); margin-bottom: 1rem; font-family: 'Playfair Display', serif;">Meet the Scientist</h4>
                     <p style="color: var(--text-light); font-size: 0.95rem; margin-bottom: 1.5rem;">Interactive events connecting communities with researchers to learn about health research.</p>
                     <div style="display: flex; flex-direction: column; gap: 0.75rem;">
                         <a href="https://www.meetthescientist.ie/" target="_blank" style="color: var(--primary-blue); text-decoration: none; font-weight: 600; font-size: 0.9rem;">Visit Meet the Scientist →</a>
                     </div>
                 </div>
-                <div style="background: white; padding: 2rem; border-radius: 16px; box-shadow: var(--shadow-soft);">
+                <div style="background: white; padding: 2rem; border-radius: 16px; box-shadow: var(--shadow-soft); border-top: 3px solid var(--domain-training);">
                     <h4 style="font-size: 1.1rem; color: var(--primary-deep); margin-bottom: 1rem; font-family: 'Playfair Display', serif;">FutureLearn Course</h4>
                     <p style="color: var(--text-light); font-size: 0.95rem; margin-bottom: 1.5rem;">Free online course: Randomised Trials and Their Role in Modern Healthcare.</p>
                     <div style="display: flex; flex-direction: column; gap: 0.75rem;">
