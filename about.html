@@ -15,6 +15,16 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About | Centre for Health Research Methodology</title>
+    <meta name="description" content="Meet the team behind the Centre for Health Research Methodology at the University of Galway: leadership, researchers, affiliated faculty, PhD scholars, and patient and public partners.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Centre for Health Research Methodology">
+    <meta property="og:title" content="About the Centre for Health Research Methodology">
+    <meta property="og:description" content="Meet the team behind the Centre for Health Research Methodology at the University of Galway: leadership, researchers, affiliated faculty, PhD scholars, and patient and public partners.">
+    <meta property="og:url" content="https://chrm.ie/about.html">
+    <meta property="og:image" content="https://chrm.ie/images/chrm-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -1306,7 +1316,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2025 Centre for Health Research Methodology, University of Galway. All rights reserved. <a href="privacy-policy.html" style="color: rgba(255, 255, 255, 0.6);">Privacy Policy</a></p>
+            <p>© <span class="copyright-year">2026</span> Centre for Health Research Methodology, University of Galway. All rights reserved. <a href="privacy-policy.html" style="color: rgba(255, 255, 255, 0.6);">Privacy Policy</a></p>
             <p style="color: rgba(255, 255, 255, 0.5); font-size: 0.85rem;">Website design and build by Declan Devane</p>
         </div>
     </footer>
@@ -1449,5 +1459,6 @@
         // Check hash when it changes
         window.addEventListener('hashchange', openProfileFromHash);
     </script>
+<script>document.querySelectorAll(".copyright-year").forEach(function(el){el.textContent=new Date().getFullYear();});</script>
 </body>
 </html>
