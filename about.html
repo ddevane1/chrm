@@ -444,6 +444,43 @@
             line-height: 1.6;
         }
 
+        /* Senior card - one tier below director */
+        .team-card.senior {
+            grid-column: span 2;
+            display: grid;
+            grid-template-columns: 160px 1fr;
+            text-align: left;
+        }
+
+        .team-card.senior .team-photo {
+            height: 160px;
+            width: 160px;
+        }
+
+        .team-card.senior .team-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .team-card.senior .team-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 1.5rem;
+        }
+
+        .team-card.senior .team-info h3 {
+            font-size: 1.1rem;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 0.4rem;
+        }
+
+        .team-card.senior .team-info .role {
+            font-size: 0.85rem;
+        }
+
         /* Team Categories */
         .team-category {
             margin-bottom: 3rem;
@@ -480,7 +517,8 @@
                 grid-template-columns: repeat(3, 1fr);
             }
 
-            .team-card.director {
+            .team-card.director,
+            .team-card.senior {
                 grid-column: span 3;
             }
         }
@@ -490,7 +528,8 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .team-card.director {
+            .team-card.director,
+            .team-card.senior {
                 grid-column: span 2;
             }
         }
@@ -520,12 +559,14 @@
                 grid-template-columns: 1fr;
             }
 
-            .team-card.director {
+            .team-card.director,
+            .team-card.senior {
                 grid-column: span 1;
                 grid-template-columns: 1fr;
             }
 
-            .team-card.director .team-info {
+            .team-card.director .team-info,
+            .team-card.senior .team-info {
                 text-align: center;
             }
 
@@ -909,7 +950,7 @@
                     </div>
                 </div>
                 <div class="team-grid" style="margin-top: 2.5rem;">
-                    <div class="team-card"
+                    <div class="team-card senior"
                          data-name="Prof. Gian Luca Di Tanna"
                          data-role="Professor in Health Research Methodology, Head of Discipline in Evidence Science"
                          data-bio="Gian Luca Di Tanna is Professor in Health Research Methodology and Head of Discipline in Evidence Science at the Centre for Health Research Methodology, School of Nursing, Midwifery and Evidence Science, University of Galway. His work spans Bayesian approaches to evidence synthesis, statistical methods for randomised trials and observational studies, health economic evaluation, and Health Technology Assessment. He was previously Professor of Biostatistics and Health Economics at SUPSI, Switzerland, and has held academic positions at UNSW Sydney, Queen Mary University of London, and Sapienza University of Rome, alongside industry experience at Amgen. He is a statistical editor for Cochrane and co-author of the book 'Bayesian Meta-Analysis: A Practical Introduction'.">
@@ -919,6 +960,8 @@
                             <div class="role">Professor in Health Research Methodology<br>Head of Discipline in Evidence Science</div>
                         </div>
                     </div>
+                </div>
+                <div class="team-grid" style="margin-top: 2.5rem;">
                     <div class="team-card"
                          data-name="Dr. Nikita Burke"
                          data-role="Programme Manager, Evidence Synthesis Ireland & Associate Director, Cochrane Ireland"
