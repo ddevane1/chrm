@@ -1115,6 +1115,75 @@
             }
         }
 
+        /* Hiring Post-it */
+        .hiring-postit {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 999;
+            background: #fff9c4;
+            padding: 1.5rem 1.75rem;
+            width: 220px;
+            box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.15);
+            transform: rotate(2deg);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+        }
+
+        .hiring-postit:hover {
+            transform: rotate(0deg) scale(1.05);
+            box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .hiring-postit-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-deep);
+            margin-bottom: 0.5rem;
+        }
+
+        .hiring-postit-text {
+            font-size: 0.85rem;
+            color: #4a4a4a;
+            line-height: 1.5;
+            margin-bottom: 0.75rem;
+        }
+
+        .hiring-postit-link {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+
+        .hiring-postit-close {
+            position: absolute;
+            top: 0.4rem;
+            right: 0.6rem;
+            background: none;
+            border: none;
+            font-size: 1.1rem;
+            color: #999;
+            cursor: pointer;
+            line-height: 1;
+            padding: 0.2rem;
+        }
+
+        .hiring-postit-close:hover {
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
+            .hiring-postit {
+                bottom: 1rem;
+                right: 1rem;
+                width: 190px;
+                padding: 1.25rem;
+            }
+        }
+
         /* Animations */
         .fade-in {
             opacity: 0;
@@ -1188,6 +1257,14 @@
             <p><strong>Training across all our domains:</strong> over 100,000 attendees at 200+ events, reaching 130+ countries.</p>
             <span class="training-banner-link">Explore training →</span>
         </div>
+    </a>
+
+    <!-- Hiring Post-it -->
+    <a href="vacancies.html" class="hiring-postit" id="hiringPostit">
+        <button class="hiring-postit-close" id="hiringClose" aria-label="Dismiss">&times;</button>
+        <div class="hiring-postit-title">We're Hiring!</div>
+        <div class="hiring-postit-text">Research Fellow - Evidence Synthesis</div>
+        <div class="hiring-postit-link">View details &rarr;</div>
     </a>
 
     <!-- Domain 1: Trials Methodology -->
@@ -1671,6 +1748,13 @@
 
         document.querySelectorAll('.counter-number').forEach(el => {
             counterObserver.observe(el);
+        });
+
+        // Hiring post-it close
+        document.getElementById('hiringClose').addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            document.getElementById('hiringPostit').style.display = 'none';
         });
 
     </script>
