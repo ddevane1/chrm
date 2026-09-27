@@ -365,6 +365,83 @@
             font-style: italic;
         }
 
+        /* Network Members Section */
+        .members-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .member-card {
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 2.5rem;
+            align-items: start;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .member-logo img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .member-info h3 {
+            color: var(--primary-blue);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .member-info p {
+            color: var(--text-dark);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .member-info ul {
+            columns: 2;
+            column-gap: 2.5rem;
+            margin: 0 0 1.25rem 1.25rem;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .member-info li {
+            margin-bottom: 0.5rem;
+            break-inside: avoid;
+        }
+
+        .member-link {
+            display: inline-block;
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .member-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .member-card {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 1.75rem;
+            }
+
+            .member-logo {
+                max-width: 200px;
+                margin: 0 auto;
+            }
+
+            .member-info ul {
+                columns: 1;
+            }
+        }
+
         /* Footer */
 
         .footer-content h3 {
@@ -815,6 +892,37 @@
                 <h4><a href="about.html#profile-tom-conway">Dr. Thomas Conway</a></h4>
                 <div class="role">Training support coordinator</div>
                 <div class="qualification">Evidence synthesist, training coordinator</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Network Members Section -->
+    <section class="content-section">
+        <div class="section-header">
+            <h2>Network Members</h2>
+            <p>Institutional members of the Ireland <span class="grade-red">GRADE</span> Network</p>
+        </div>
+
+        <div class="members-list">
+            <div class="member-card">
+                <div class="member-logo">
+                    <img src="images/hiqa-logo.png" alt="Health Information and Quality Authority (HIQA) logo" loading="lazy">
+                </div>
+                <div class="member-info">
+                    <h3>Health Information and Quality Authority (HIQA)</h3>
+                    <p>The Health Information and Quality Authority (HIQA) is an independent statutory body established to promote safety and quality in the provision of health and social care services for the benefit of the health and welfare of the public. Its work extends across setting standards, regulating and monitoring health and social care services and supporting evidence-informed decision-making. HIQA has responsibility for the following:</p>
+                    <ul>
+                        <li>Setting standards for health and social care services</li>
+                        <li>Regulating social care services</li>
+                        <li>Regulating health services</li>
+                        <li>Monitoring international protection accommodation service centres, health services and children's social services against the national standards</li>
+                        <li>Health technology assessment</li>
+                        <li>Health information</li>
+                        <li>National Care Experience Programme</li>
+                    </ul>
+                    <p>HIQA's evidence synthesis functions use <span class="grade-red">GRADE</span> and the <span class="grade-red">GRADE</span> Evidence-to-Decision (EtD) framework in the course of their day-to-day work. In addition, HIQA's Centre in Ireland for Clinical guideline support and Evidence Reviews (CICER) team provides training to guideline development groups on <span class="grade-red">GRADE</span> and the <span class="grade-red">GRADE</span> EtD framework.</p>
+                    <a href="https://www.hiqa.ie/" class="member-link" target="_blank" rel="noopener">Visit HIQA website →</a>
+                </div>
             </div>
         </div>
     </section>
